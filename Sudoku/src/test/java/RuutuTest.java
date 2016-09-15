@@ -1,5 +1,5 @@
 
-import fi.roosmeri.logiikka.Ruutu;
+import fi.mightysudoku.logiikka.Ruutu;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

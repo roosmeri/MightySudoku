@@ -1,6 +1,6 @@
 
-import fi.roosmeri.logiikka.Ruudukko;
-import fi.roosmeri.logiikka.Ruutu;
+import fi.mightysudoku.logiikka.Ruudukko;
+import fi.mightysudoku.logiikka.Ruutu;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;

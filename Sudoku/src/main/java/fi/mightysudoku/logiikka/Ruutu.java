@@ -1,4 +1,4 @@
-package fi.roosmeri.logiikka;
+package fi.mightysudoku.logiikka;
 
 public class Ruutu {
 

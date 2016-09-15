@@ -1,9 +1,8 @@
-package fi.roosmeri;
+package fi.mightysudoku;
 
-import fi.roosmeri.logiikka.Ruudukko;
-import fi.roosmeri.logiikka.Ruutu;
+import fi.mightysudoku.logiikka.Ruudukko;
+import fi.mightysudoku.logiikka.Ruutu;
 import java.util.ArrayList;
-
 
 public class MightyMain {
 
@@ -13,20 +12,20 @@ public class MightyMain {
         int apu2 = -1;
         for (int i = 0; i < 81; i++) {
             apu2++;
-            if(apu > 8) {
+            if (apu > 8) {
                 break;
             }
             ruudut.add(new Ruutu(apu, apu2));
-            
+
             if (i > 0 && i % 8 == 0) {
                 apu++;
-                apu2=0;
+                apu2 = 0;
             }
         }
-      
+
         for (Ruutu r : ruudut) {
             System.out.println(r.getX() + " " + r.getY());
         }
     }
-    
+
 }

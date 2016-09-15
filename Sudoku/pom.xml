@@ -35,7 +35,7 @@
                 <version>1.1.8</version>    
                 <configuration>
                     <targetClasses>
-                        <param>javalabra.sudoku.*</param>
+                        <param>fi.mightysudoku.logiikka*</param>
                     </targetClasses>
                 </configuration>
             </plugin>
