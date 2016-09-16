@@ -24,7 +24,7 @@ public class Ruutu {
     }
 
     public void setArvo(int arvo) {
-        //tawrkistetaan, että ruutuun asetettava arvo on väliltä [1,9]
+        //tarkistetaan, että ruutuun asetettava arvo on väliltä [1,9]
         if (arvo > 0 && arvo < 10) {
             this.arvo = arvo;
         } else {

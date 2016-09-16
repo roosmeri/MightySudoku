@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="RuutuTest" time="0.026" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="RuutuTest" time="0.01" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -65,7 +65,7 @@
   <testcase classname="RuutuTest" name="konstruktoriAsettaaKoordinaatitOikein" time="0"/>
   <testcase classname="RuutuTest" name="getXPalauttaaOikeanKoordinaatin" time="0"/>
   <testcase classname="RuutuTest" name="setArvoAsettaaOikeanArvonMinimilla" time="0"/>
-  <testcase classname="RuutuTest" name="setArvoEiMuutaArvoaVaarallaArvolla" time="0.016"/>
+  <testcase classname="RuutuTest" name="setArvoEiMuutaArvoaVaarallaArvolla" time="0.001"/>
   <testcase classname="RuutuTest" name="getArvoPalauttaaOikeanArvon" time="0"/>
   <testcase classname="RuutuTest" name="setArvoAsettaaOikeanArvonMaksimilla" time="0"/>
   <testcase classname="RuutuTest" name="getArvoPalauttaaNollanJosMuutaArvoaEiAsetettu" time="0"/>
