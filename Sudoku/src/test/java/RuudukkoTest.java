@@ -28,10 +28,12 @@ public class RuudukkoTest {
     public void setUp() {
         ArrayList<Ruutu> ruudut = new ArrayList<>();
         int apu = 0;
+        int apu2 = 0;
         for (int i = 0; i < 9; i++) {
-            ruudut.add(new Ruutu(apu, i));
+            ruudut.add(new Ruutu(apu, apu2));
             if (i % 3 == 0) {
                 apu++;
+                apu2 = 0;
             }
         }
         this.ruudukko = new Ruudukko(ruudut);
@@ -41,9 +43,19 @@ public class RuudukkoTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void toimiikoOnkoArvoJoMetodiJosOn() {
+        ruudukko.getRuudut().get(0).setArvo(3);
+        String vastaus = "" + ruudukko.onkoArvoJo(3);
+
+        assertEquals("true", vastaus);
+    }
+
+    @Test
+    public void toimiikoOnkoArvoJoMetodiJosEiOle() {
+        ruudukko.getRuudut().get(0).setArvo(4);
+        String vastaus = "" + ruudukko.onkoArvoJo(3);
+
+        assertEquals("false", vastaus);
+    }
 }

@@ -73,6 +73,14 @@ public class RuutuTest {
     }
 
     @Test
+    public void getArvoPalauttaaNollanJosMuutaArvoaEiAsetettu() {
+        Ruutu ruutu = new Ruutu(2, 3);
+        String vastaus = "" + ruutu.getArvo();
+
+        assertEquals("0", vastaus);
+    }
+
+    @Test
     public void getXPalauttaaOikeanKoordinaatin() {
         Ruutu ruutu = new Ruutu(2, 3);
         String vastaus = "" + ruutu.getX();

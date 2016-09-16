@@ -8,6 +8,7 @@ public class MightyMain {
 
     public static void main(String[] args) {
         ArrayList<Ruutu> ruudut = new ArrayList<>();
+
         int apu = 0;
         int apu2 = -1;
         for (int i = 0; i < 81; i++) {
@@ -22,10 +23,14 @@ public class MightyMain {
                 apu2 = 0;
             }
         }
-
+        ArrayList<Ruutu> ruudukonRuudut = new ArrayList<>();
         for (Ruutu r : ruudut) {
-            System.out.println(r.getX() + " " + r.getY());
+            if (r.getX() <= 2 && r.getY() <= 2) {
+                ruudukonRuudut.add(r);
+
+            }
         }
+        Ruudukko ruudukko = new Ruudukko(ruudukonRuudut);
     }
 
 }

@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Ruudukko implements Numeromuodostelma {
 
     ArrayList<Ruutu> ruudut = new ArrayList<>();
- //   private String ruudukontunnus = "";
+    //   private String ruudukontunnus = "";
 
     public Ruudukko(ArrayList<Ruutu> ruudut) {
         this.ruudut = ruudut;
-        
+
     }
 
     @Override
@@ -20,6 +20,11 @@ public class Ruudukko implements Numeromuodostelma {
             }
         }
         return false;
+    }
+
+    @Override
+    public ArrayList<Ruutu> getRuudut() {
+        return this.ruudut;
     }
 
 }

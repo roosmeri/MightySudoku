@@ -23,4 +23,9 @@ public class Rivi implements Numeromuodostelma {
         return false;
     }
 
+    @Override
+    public ArrayList<Ruutu> getRuudut() {
+        return this.ruudut;
+    }
+
 }
