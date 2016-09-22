@@ -7,8 +7,14 @@ public class Ruutu {
     private int y = 0;
 
     public Ruutu(int x, int y) {
-        this.x = x;
-        this.y = y;
+        if (x >= 0 && x < 9) {
+            this.x = x;
+        }
+
+        if (y >= 0 && y < 9) {
+            this.y = y;
+        }
+
     }
 
     public int getArvo() {
@@ -25,6 +31,7 @@ public class Ruutu {
 
     public void setArvo(int arvo) {
         //tarkistetaan, että ruutuun asetettava arvo on väliltä [1,9]
+        // tulisi myös tietää onko tämän ruudun rivillä tai ruudukossa jo asetettava arvo
         if (arvo > 0 && arvo < 10) {
             this.arvo = arvo;
         } else {

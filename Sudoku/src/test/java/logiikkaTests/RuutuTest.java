@@ -1,3 +1,5 @@
+package logiikkaTests;
+
 
 import fi.mightysudoku.logiikka.Ruutu;
 import org.junit.After;
@@ -29,11 +31,18 @@ public class RuutuTest {
     }
 
     @Test
-    public void konstruktoriAsettaaKoordinaatitOikein() {
+    public void konstruktoriAsettaaKoordinaatitOikeinOikeilla() {
         Ruutu ruutu = new Ruutu(2, 3);
         String vastaus = "x:" + ruutu.getX() + " ja y:" + ruutu.getY();
 
         assertEquals("x:2 ja y:3", vastaus);
+    }
+    @Test
+    public void konstruktoriEiAsetaKoordinaatttejaHuonoilla() {
+        Ruutu ruutu = new Ruutu(18, -7);
+        String vastaus = "x:" + ruutu.getX() + " ja y:" + ruutu.getY();
+
+        assertEquals("x:0 ja y:0", vastaus);
     }
 
     @Test

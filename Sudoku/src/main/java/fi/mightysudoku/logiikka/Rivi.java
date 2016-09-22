@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Rivi implements Numeromuodostelma {
 
-    ArrayList<Ruutu> ruudut = new ArrayList<>();
+    private ArrayList<Ruutu> ruudut = new ArrayList<>();
     private String rivitunnus = "";
 
     public Rivi(ArrayList<Ruutu> ruudut) {
@@ -26,6 +26,10 @@ public class Rivi implements Numeromuodostelma {
     @Override
     public ArrayList<Ruutu> getRuudut() {
         return this.ruudut;
+    }
+
+    public String getRivitunnus() {
+        return rivitunnus;
     }
 
 }

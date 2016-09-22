@@ -1,3 +1,5 @@
+package logiikkaTests;
+
 
 import fi.mightysudoku.logiikka.Ruudukko;
 import fi.mightysudoku.logiikka.Ruutu;
