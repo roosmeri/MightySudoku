@@ -16,36 +16,40 @@ public class Pelialusta {
     }
 
     public void luoRuudukot() {
-        //täällä kaiken maailman vikaa...
-        int x = 3;
-        int y = 3;
+        //tÃ¤Ã¤llÃ¤ kaiken maailman vikaa...
+        int x = 0;
+        int y = 0;
         for (int i = 0; i < 9; i++) {
-            if (y > 8) {
-                y = 0;
-            }
-            ArrayList<Ruutu> ruudukonRuudut = new ArrayList<>();
+
             x += 3;
-            if (x % 9 == 0) {
-                x = 0;
+            if (x % 3 == 0) {
+                y = 0;
                 y += 3;
 
             }
+            ArrayList<Ruutu> ruudukonRuudut = new ArrayList<>();
             for (Ruutu r : this.ruudut) {
                 if ((r.getX() < x) && (r.getX() >= (x - 3)) && (r.getY() < y) && (r.getY() >= (y - 3))) {
                     ruudukonRuudut.add(r);
 
                 }
             }
-            this.ruudukot.add(new Ruudukko(ruudukonRuudut));
-        }
+            if (ruudukonRuudut.size() == 9) {
+                this.ruudukot.add(new Ruudukko(ruudukonRuudut));
+            }
 
-        for (Ruudukko r : this.ruudukot) {
-            System.out.println(r.getRuudut().size());
         }
+//tarkistetaan ruudukon ruutujen sisältöä
+//        for (Ruudukko r : this.ruudukot) {
+//            System.out.println(r.getRuudut().size());
+//            for (Ruutu ruu : r.getRuudut()) {
+//                System.out.println(ruu);
+//            }
+//        }
     }
 
     public void luoRivit() {
-        //luodaan 18 riviÃ¤, 9 horisontaalista ja 9 vertikaalista
+        //luodaan 18 riviÃƒÂ¤, 9 horisontaalista ja 9 vertikaalista
         for (int i = 0; i < 9; i++) {
             ArrayList<Ruutu> rivinruudutx = new ArrayList<>();
             for (Ruutu ruutu : this.ruudut) {
@@ -95,7 +99,7 @@ public class Pelialusta {
         for (Rivi rivi : rivit) {
             if (rivi.getRivitunnus().charAt(0) == ruutu.getX() || rivi.getRivitunnus().charAt(1) == ruutu.getY()) {
                 if (rivi.onkoArvoJo(asetettavaArvo)) {
-                    System.out.println("Arvo on jo rivillÃ¤.");
+                    System.out.println("Arvo on jo rivillÃƒÂ¤.");
                     return;
                 }
             }
@@ -103,6 +107,18 @@ public class Pelialusta {
         }
 
         ruutu.setArvo(asetettavaArvo);
+    }
+
+    public ArrayList<Rivi> getRivit() {
+        return rivit;
+    }
+
+    public ArrayList<Ruudukko> getRuudukot() {
+        return ruudukot;
+    }
+
+    public ArrayList<Ruutu> getRuudut() {
+        return ruudut;
     }
 
 }

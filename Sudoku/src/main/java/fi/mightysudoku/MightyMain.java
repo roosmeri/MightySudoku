@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class MightyMain {
 
     public static void main(String[] args) {
-              Pelialusta alusta = new Pelialusta();
+        Pelialusta alusta = new Pelialusta();
 //        ArrayList<Ruutu> ruudut = new ArrayList<>();
 //
 //        int x = 0;

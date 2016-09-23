@@ -9,7 +9,7 @@ public class Ruudukko implements Numeromuodostelma {
 
     public Ruudukko(ArrayList<Ruutu> ruudut) {
         this.ruudut = ruudut;
-        this.ruudukontunnus = "" +ruudut.get(0).getX()+ruudut.get(0).getY();
+        this.ruudukontunnus = "" + ruudut.get(0).getX() + ruudut.get(0).getY();
     }
 
     @Override
@@ -30,6 +30,5 @@ public class Ruudukko implements Numeromuodostelma {
     public String getRuudukontunnus() {
         return ruudukontunnus;
     }
-    
 
 }

@@ -1,6 +1,6 @@
-package logiikkaTests;
+package fi.mightysudoku.logiikkaTest;
 
-
+import fi.mightysudoku.logiikka.Pelialusta;
 import fi.mightysudoku.logiikka.Rivi;
 import fi.mightysudoku.logiikka.Ruutu;
 import java.util.ArrayList;
@@ -28,12 +28,8 @@ public class RiviTest {
 
     @Before
     public void setUp() {
-        ArrayList<Ruutu> ruudut = new ArrayList<>();
-        for (int i = 0; i < 9; i++) {
-            ruudut.add(new Ruutu(0, i));
-        }
-
-        this.rivi = new Rivi(ruudut);
+        Pelialusta alusta = new Pelialusta();
+        rivi = alusta.getRivit().get(2);
     }
 
     @After
@@ -56,6 +52,14 @@ public class RiviTest {
         rivi.getRuudut().get(0).setArvo(7);
         String vastaus = "" + rivi.onkoArvoJo(8);
         assertEquals("false", vastaus);
+
+    }
+
+    @Test
+    public void onkoGetRivitunnusPalautusOikea() {
+        String vastaus = "" + rivi.getRuudut().get(0).getX() + rivi.getRuudut().get(0).getY();
+
+        assertEquals(vastaus, rivi.getRivitunnus());
 
     }
 }

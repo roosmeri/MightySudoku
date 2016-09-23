@@ -31,12 +31,14 @@ public class Ruutu {
 
     public void setArvo(int arvo) {
         //tarkistetaan, että ruutuun asetettava arvo on väliltä [1,9]
-        // tulisi myös tietää onko tämän ruudun rivillä tai ruudukossa jo asetettava arvo
         if (arvo > 0 && arvo < 10) {
             this.arvo = arvo;
-        } else {
-            System.out.println("Numeron tulee olla väliltä 1-9.");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Arvo:" + getArvo() + ", x:" + getX() + ", y:" + getY();
     }
 
 }

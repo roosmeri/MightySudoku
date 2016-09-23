@@ -1,4 +1,4 @@
-package logiikkaTests;
+package fi.mightysudoku.logiikkaTest;
 
 
 import fi.mightysudoku.logiikka.Ruudukko;
@@ -62,4 +62,10 @@ public class RuudukkoTest {
 
         assertEquals("false", vastaus);
     }
+     @Test
+    public void toimiikoGetRuudukontunnus() {
+
+        assertEquals("00", ruudukko.getRuudukontunnus());
+    }
+    
 }

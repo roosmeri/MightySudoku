@@ -1,5 +1,4 @@
-package logiikkaTests;
-
+package fi.mightysudoku.logiikkaTest;
 
 import fi.mightysudoku.logiikka.Ruutu;
 import org.junit.After;
@@ -37,9 +36,18 @@ public class RuutuTest {
 
         assertEquals("x:2 ja y:3", vastaus);
     }
+
     @Test
-    public void konstruktoriEiAsetaKoordinaatttejaHuonoilla() {
+    public void konstruktoriEiAsetaKoordinaattejaHuonoilla() {
         Ruutu ruutu = new Ruutu(18, -7);
+        String vastaus = "x:" + ruutu.getX() + " ja y:" + ruutu.getY();
+
+        assertEquals("x:0 ja y:0", vastaus);
+    }
+
+    @Test
+    public void konstruktoriEiAsetaKoordinaattejaHuonoilla2() {
+        Ruutu ruutu = new Ruutu(9, 9);
         String vastaus = "x:" + ruutu.getX() + " ja y:" + ruutu.getY();
 
         assertEquals("x:0 ja y:0", vastaus);
@@ -66,7 +74,8 @@ public class RuutuTest {
     @Test
     public void setArvoEiMuutaArvoaVaarallaArvolla() {
         Ruutu ruutu = new Ruutu(2, 3);
-        ruutu.setArvo(12);
+        ruutu.setArvo(10);
+        ruutu.setArvo(0);
         String vastaus = "" + ruutu.getArvo();
 
         assertEquals("0", vastaus);
@@ -103,5 +112,13 @@ public class RuutuTest {
         String vastaus = "" + ruutu.getY();
 
         assertEquals("3", vastaus);
+    }
+
+    @Test
+    public void toStringMetodiTuottaaOikeanStringin() {
+        Ruutu ruutu = new Ruutu(0, 6);
+        ruutu.setArvo(7);
+
+        assertEquals("Arvo:7, x:0, y:6", ruutu.toString());
     }
 }
