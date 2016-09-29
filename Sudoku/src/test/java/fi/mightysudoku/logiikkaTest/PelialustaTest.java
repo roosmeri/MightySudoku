@@ -56,12 +56,11 @@ public class PelialustaTest {
         assertEquals("18", vastaus);
     }
 
-//    @Test
-//    //tämä ei toimi vielä oikein
-//    public void luoRuudukotLuoRuudukotOikein() {
-//        this.alusta = new Pelialusta();
-//        String vastaus = "" + alusta.getRuudukot().size();
-//
-//        assertEquals("9", vastaus);
-//    }
+    @Test
+    public void luoRuudukotLuoRuudukotOikein() {
+        this.alusta = new Pelialusta();
+        String vastaus = "" + alusta.getRuudukot().size();
+
+        assertEquals("9", vastaus);
+    }
 }

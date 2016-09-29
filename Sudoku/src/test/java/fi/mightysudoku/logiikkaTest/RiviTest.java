@@ -41,8 +41,7 @@ public class RiviTest {
         rivi.getRuudut().get(0).setArvo(8);
         rivi.getRuudut().get(4).setArvo(8);
         rivi.getRuudut().get(5).setArvo(4);
-        String vastaus = "" + rivi.onkoArvoJo(8);
-        assertEquals("true", vastaus);
+        assertTrue(rivi.onkoArvoJo(8));
 
     }
 
@@ -50,8 +49,7 @@ public class RiviTest {
     public void toimiikoOnkoArvoJoJosEiOle() {
         rivi.getRuudut().get(0).setArvo(8);
         rivi.getRuudut().get(0).setArvo(7);
-        String vastaus = "" + rivi.onkoArvoJo(8);
-        assertEquals("false", vastaus);
+        assertFalse(rivi.onkoArvoJo(8));
 
     }
 

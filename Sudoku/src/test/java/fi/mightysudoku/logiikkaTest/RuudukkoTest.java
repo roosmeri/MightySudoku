@@ -48,9 +48,8 @@ public class RuudukkoTest {
     @Test
     public void toimiikoOnkoArvoJoMetodiJosOn() {
         ruudukko.getRuudut().get(0).setArvo(3);
-        String vastaus = "" + ruudukko.onkoArvoJo(3);
 
-        assertEquals("true", vastaus);
+        assertTrue(ruudukko.onkoArvoJo(3));
     }
 
     @Test
@@ -58,9 +57,8 @@ public class RuudukkoTest {
         ruudukko.getRuudut().get(0).setArvo(4);
         ruudukko.getRuudut().get(1).setArvo(6);
         ruudukko.getRuudut().get(3).setArvo(9);
-        String vastaus = "" + ruudukko.onkoArvoJo(3);
 
-        assertEquals("false", vastaus);
+        assertFalse(ruudukko.onkoArvoJo(3));
     }
      @Test
     public void toimiikoGetRuudukontunnus() {
