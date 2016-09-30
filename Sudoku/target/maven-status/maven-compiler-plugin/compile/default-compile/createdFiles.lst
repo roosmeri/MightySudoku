@@ -1,6 +1,10 @@
+fi\mightysudoku\kayttoliittyma\NumeronAsetusKuuntelija.class
+fi\mightysudoku\kayttoliittyma\SudokuFrame.class
 fi\mightysudoku\logiikka\Ruutu.class
+fi\mightysudoku\logiikka\Sarake.class
 fi\mightysudoku\MightyMain.class
 fi\mightysudoku\logiikka\Ruudukko.class
+fi\mightysudoku\kayttoliittyma\Kayttoliittyma.class
 fi\mightysudoku\logiikka\Rivi.class
 fi\mightysudoku\logiikka\Numeromuodostelma.class
 fi\mightysudoku\logiikka\Pelialusta.class

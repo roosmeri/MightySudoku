@@ -6,6 +6,10 @@ P‰iv‰ | Tunnit | Kuvaus
 15.09.2016 | 5.0h | Ensimm‰isi‰ luokkia, testej‰
 16.09.2016 | 3.0h | Muutamia metoditoteutuksia, checkstyle raportti, testej‰
 22.09.2016 | 3.25h | Lis‰‰ metoditoteutuksia luokkaan Pelialusta
-23.09.2016 | ... | Testiluokka Pelialustalle, muutatioiden tappoa, metoditoteutuksia
+23.09.2016 | 2.5h | Testiluokka Pelialustalle, muutatioiden tappoa, metoditoteutuksia
+29.09.2016 | 4.45h | Kayttoliittyma aloitettu, dokumentaation mokia korjailtu, ruudukon luonti korjattu
+30.09.2016 | 3.0h | P‰‰tetty jakaa rivit Sarakkeisiin ja Riveihin, p‰ivitetty testej‰
+30.09.2016 | 2.5h | P‰ivitetty testej‰, korjattu metodeja Pelialusta-luokassa
+
 
 

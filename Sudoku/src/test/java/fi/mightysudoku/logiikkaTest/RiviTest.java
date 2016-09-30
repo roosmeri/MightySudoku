@@ -55,7 +55,7 @@ public class RiviTest {
 
     @Test
     public void onkoGetRivitunnusPalautusOikea() {
-        String vastaus = "" + rivi.getRuudut().get(0).getX() + rivi.getRuudut().get(0).getY();
+        int vastaus = rivi.getRuudut().get(0).getY();
 
         assertEquals(vastaus, rivi.getRivitunnus());
 

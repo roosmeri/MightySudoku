@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 6,
+      <title>File: 10,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -44,6 +44,34 @@ under the License.
             </tr>
           </thead>
           <tbody>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.mightysudoku.kayttoliittyma.SudokuFrame.java">fi/mightysudoku/kayttoliittyma/SudokuFrame.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.mightysudoku.kayttoliittyma.Kayttoliittyma.java">fi/mightysudoku/kayttoliittyma/Kayttoliittyma.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.mightysudoku.MightyMain.java">fi/mightysudoku/MightyMain.java</a>
@@ -116,7 +144,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#fi.mightysudoku.kayttoliittyma.NumeronAsetusKuuntelija.java">fi/mightysudoku/kayttoliittyma/NumeronAsetusKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#fi.mightysudoku.logiikka.Ruutu.java">fi/mightysudoku/logiikka/Ruutu.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.mightysudoku.logiikka.Sarake.java">fi/mightysudoku/logiikka/Sarake.java</a>
                 </td>
                 <td>
                   0

@@ -2,21 +2,34 @@ package fi.mightysudoku.logiikka;
 
 import java.util.ArrayList;
 
+/**
+ * Luokka pitää sisällään ja alustaa kaikki pelialustaan kuuluvat komponentit,
+ * rivit, sarakkeet, ruudukot ja itse ruudut.
+ *
+ *
+ */
 public class Pelialusta {
 
     private ArrayList<Rivi> rivit = new ArrayList<>();
     private ArrayList<Ruudukko> ruudukot = new ArrayList<>();
     private ArrayList<Ruutu> ruudut = new ArrayList<>();
+    private ArrayList<Sarake> sarakkeet = new ArrayList<>();
 
+    /**
+     * Konstruktori kutsuu kaikkia pelialustan komponentteja luovia metodeita.
+     *
+     */
     public Pelialusta() {
         luoRuudut();
-        luoRivit();
+        luoRivitJaSarakkeet();
         luoRuudukot();
 
     }
 
+    /**
+     * Metodi luo pelialustan aliruudukot.
+     */
     public void luoRuudukot() {
-        //tÃƒÂ¤ÃƒÂ¤llÃƒÂ¤ kaiken maailman vikaa...
         int x = 0;
         int y = 0;
         for (int i = 0; i < 9; i++) {
@@ -42,8 +55,12 @@ public class Pelialusta {
 
     }
 
-    public void luoRivit() {
-        //luodaan 18 riviÃƒÆ’Ã‚Â¤, 9 horisontaalista ja 9 vertikaalista
+    /**
+     * Metodi luo pelialustan rivit ja sarakkeet.
+     *
+     */
+    public void luoRivitJaSarakkeet() {
+        //luodaan 18 rivia,9 horisontaalista ja 9 vertikaalista
         for (int i = 0; i < 9; i++) {
             ArrayList<Ruutu> rivinruudutx = new ArrayList<>();
             for (Ruutu ruutu : this.ruudut) {
@@ -51,7 +68,7 @@ public class Pelialusta {
                     rivinruudutx.add(ruutu);
                 }
             }
-            this.rivit.add(new Rivi(rivinruudutx));
+            this.sarakkeet.add(new Sarake(rivinruudutx));
             ArrayList<Ruutu> rivinruuduty = new ArrayList<>();
             for (Ruutu ruutu : this.ruudut) {
                 if (ruutu.getY() == i) {
@@ -62,8 +79,13 @@ public class Pelialusta {
         }
     }
 
+    /**
+     * Metodi luo pelialustan ruudut.
+     *
+     *
+     */
     public void luoRuudut() {
-        //luodaan ruudut 81 kappaletta, kaikilla oma koordinaattinsa
+        //luodaan ruudut, 81 kappaletta, kaikilla oma koordinaattinsa
         int x = 0;
         int y = 0;
         for (int i = 0; i < 81; i++) {
@@ -79,28 +101,81 @@ public class Pelialusta {
         }
     }
 
+    /**
+     * Metodi asettaa valittuun ruutuun Käyttäjän antaman arvon, jos samaa arvoa
+     * ei ole rivillä, sarakkeella tai ruudukossa mihin kyseinen ruutu kuuluu.
+     *
+     * @param ruutu Käyttäjan valitsema ruutu
+     *
+     * @param asetettavaArvo Käyttäjän valitsema asetettava arvo
+     */
     public void asetaArvo(Ruutu ruutu, int asetettavaArvo) {
-        // tarkistetaan kuuluuko ruudun ruudukkoon tai kumpaankaan riviin jo asetettavana olevaa arvoa
+        if (onkoArvoJoRuudukossa(ruutu, asetettavaArvo)) {
+            ruutu.setArvo(0);
+        } else if (onkoArvoJoRivissa(ruutu, asetettavaArvo)) {
+            ruutu.setArvo(0);
+        } else if (onkoArvoJoSarakkeessa(ruutu, asetettavaArvo)) {
+            ruutu.setArvo(0);
+        } else {
+            ruutu.setArvo(asetettavaArvo);
+        }
+    }
+
+    /**
+     * Metodi tarkistaa onko Käyttäjän valitseman ruudun sarakkeessa jo valittua
+     * arvoa.
+     *
+     * @param ruutu Käyttäjan valitsema ruutu
+     * @param asetettavaArvo Käyttäjän valitsema asetettava arvo
+     */
+    public boolean onkoArvoJoSarakkeessa(Ruutu ruutu, int asetettavaArvo) {
+        for (Sarake sarake : sarakkeet) {
+            if (sarake.getSaraketunnus() == ruutu.getX()) {
+                if (sarake.onkoArvoJo(asetettavaArvo)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Metodi tarkistaa onko Käyttäjän valitseman ruudun rivissa jo valittua
+     * arvoa.
+     *
+     * @param ruutu Käyttäjan valitsema ruutu
+     * @param asetettavaArvo Käyttäjän valitsema asetettava arvo
+     */
+    public boolean onkoArvoJoRivissa(Ruutu ruutu, int asetettavaArvo) {
+        for (Rivi rivi : this.rivit) {
+            if (rivi.getRivitunnus() == ruutu.getY()) {
+                if (rivi.onkoArvoJo(asetettavaArvo)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Metodi tarkistaa onko Käyttäjän valitseman ruudun ruudukossa jo valittua
+     * arvoa.
+     *
+     * @param ruutu Käyttäjan valitsema ruutu
+     *
+     * @param asetettavaArvo Käyttäjän valitsema asetettava arvo
+     */
+    public boolean onkoArvoJoRuudukossa(Ruutu ruutu, int asetettavaArvo) {
+        // tarkistetaan kuuluuko ruudun ruudukkoon
         for (Ruudukko ruudukko : ruudukot) {
             if (ruutu.getX() < ruudukko.getRuudukontunnus().charAt(0) + 2 && ruutu.getX() >= ruudukko.getRuudukontunnus().charAt(0)
                     && ruutu.getY() < ruudukko.getRuudukontunnus().charAt(0) + 2 && ruutu.getY() >= ruudukko.getRuudukontunnus().charAt(1)) {
                 if (ruudukko.onkoArvoJo(asetettavaArvo)) {
-                    System.out.println("Arvo on jo ruudukossa.");
-                    return;
+                    return true;
                 }
             }
         }
-        for (Rivi rivi : rivit) {
-            if (rivi.getRivitunnus().charAt(0) == ruutu.getX() || rivi.getRivitunnus().charAt(1) == ruutu.getY()) {
-                if (rivi.onkoArvoJo(asetettavaArvo)) {
-                    System.out.println("Arvo on jo rivillÃƒÆ’Ã‚Â¤.");
-                    return;
-                }
-            }
-
-        }
-
-        ruutu.setArvo(asetettavaArvo);
+        return false;
     }
 
     public ArrayList<Rivi> getRivit() {
@@ -113,6 +188,10 @@ public class Pelialusta {
 
     public ArrayList<Ruutu> getRuudut() {
         return ruudut;
+    }
+
+    public ArrayList<Sarake> getSarakkeet() {
+        return sarakkeet;
     }
 
 }

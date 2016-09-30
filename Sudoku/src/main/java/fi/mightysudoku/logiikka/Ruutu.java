@@ -1,11 +1,19 @@
 package fi.mightysudoku.logiikka;
 
+/**
+ * Luokan edustaja edustaa Sudokuruudukon yhtä ruutua, jolla on koordinaatit ja
+ * arvo väliltä [1,9].
+ */
 public class Ruutu {
 
     private int arvo = 0;
     private int x = 0;
     private int y = 0;
 
+    /**
+     * Konstruktori asettaa ruudun koordinaatit niiden ollessa väliltä [0,8].
+     *
+     */
     public Ruutu(int x, int y) {
         if (x >= 0 && x < 9) {
             this.x = x;
@@ -30,12 +38,16 @@ public class Ruutu {
     }
 
     public void setArvo(int arvo) {
-        //tarkistetaan, että ruutuun asetettava arvo on väliltä [1,9]
         if (arvo > 0 && arvo < 10) {
             this.arvo = arvo;
         }
     }
 
+    /**
+     * Metodi palauttaa ruudun tekstiesityksen.
+     *
+     * @return Ruudun arvo ja koordinaatit tekstiesityksenä.
+     */
     @Override
     public String toString() {
         return "Arvo:" + getArvo() + ", x:" + getX() + ", y:" + getY();
