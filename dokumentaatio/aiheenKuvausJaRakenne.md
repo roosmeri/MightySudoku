@@ -14,6 +14,8 @@ Käyttäjän toiminnot:
 
 ### Luokkakaavio
 
-![Luokkakaavio] (http://yuml.me/diagram/scruffy/class/%5BPelialusta%5D1-81%5BRuutu%5D,%20%5BRuutu%5D9-1%5BRivi%5D,%20%5BRivi%5D18-1%5BPelialusta%5D,%20%5BRuudukko%5D1-9%5BRuutu%5D,%20%5BPelialusta%5D1-9%5BRuudukko%5D,%20%5BPelialusta%5D1-9%5BSarake%5D,%20%5B%3C%3CNumeromuodostelma%3E%3E%5D%3C-.-%5BRuudukko%5D,%20%5B%3C%3CNumeromuodostelma%3E%3E%5D%3C-.-%5BRivi%5D,%20%5B%3C%3CNumeromuodostelma%3E%3E%5D%3C-.-%5BSarake%5D,%20%5BSarake%5D1-9%5BRuutu%5D)
+![Luokkakaavio] (http://yuml.me/a978c070.png)
+
+### Sekvenssikaavioita
 ![Sekvenssikaavio tapahtumasta "Numeron asettaminen epäonnistuneesti"] (https://github.com/roosmeri/MightySudoku/blob/master/dokumentaatio/sekvenssi2.png?raw=true)
 ![Sekvenssikaavio tapahtumasta "Numeron asettaminen onnistuneesti"] (https://github.com/roosmeri/MightySudoku/blob/master/dokumentaatio/sekvenssi.png?raw=true)
