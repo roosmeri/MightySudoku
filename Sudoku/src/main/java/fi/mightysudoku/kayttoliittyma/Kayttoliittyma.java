@@ -7,9 +7,18 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 
+/**
+ * Käyttöliittymä.
+ *
+ * @author Viliina
+ */
 public class Kayttoliittyma implements Runnable {
 
     private SudokuFrame frame;
+
+    /**
+     * Käyttöliittymän konstruktori ei tee mitään.
+     */
 
     public Kayttoliittyma() {
     }
@@ -17,13 +26,6 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new SudokuFrame("Mighty Sudoku");
-        frame.setPreferredSize(new Dimension(500, 500));
-
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        //luoKomponentit(frame.getContentPane());
-        frame.pack();
-        frame.setVisible(true);
     }
 
     public SudokuFrame getFrame() {

@@ -14,7 +14,7 @@ public class Ruudukko implements Numeromuodostelma {
     /**
      * Konstruktori asettaa ruudukkoon siihen kuuluvat ruudut.
      *
-     * @param ruudut
+     * @param ruudut Ruudukon ruudut.
      */
     public Ruudukko(ArrayList<Ruutu> ruudut) {
         this.ruudut = ruudut;

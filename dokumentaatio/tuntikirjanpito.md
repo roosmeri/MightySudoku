@@ -10,6 +10,7 @@ Päivä | Tunnit | Kuvaus
 29.09.2016 | 4.45h | Kayttoliittyma aloitettu, dokumentaation mokia korjailtu, ruudukon luonti korjattu
 30.09.2016 | 3.0h | Päätetty jakaa rivit Sarakkeisiin ja Riveihin, päivitetty testejä
 30.09.2016 | 2.5h | Päivitetty testejä, korjattu metodeja Pelialusta-luokassa
+07.10.2016 | 7.0h | Lisätty yksi luokka, testejä, javadoccia, käyttöliittymätaistelua, sekvenssikaavioita
 
 
 

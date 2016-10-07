@@ -14,4 +14,6 @@ Käyttäjän toiminnot:
 
 ### Luokkakaavio
 
-![Luokkakaavio2] (http://yuml.me/diagram/scruffy/class/%5BPelialusta%5D1-81%5BRuutu%5D,%20%5BRuutu%5D9-1%5BRivi%5D,%20%5BRivi%5D18-1%5BPelialusta%5D,%20%5BRuudukko%5D1-9%5BRuutu%5D,%20%5BPelialusta%5D1-9%5BRuudukko%5D,%20%5BPelialusta%5D1-9%5BSarake%5D,%20%5B%3C%3CNumeromuodostelma%3E%3E%5D%3C-.-%5BRuudukko%5D,%20%5B%3C%3CNumeromuodostelma%3E%3E%5D%3C-.-%5BRivi%5D,%20%5B%3C%3CNumeromuodostelma%3E%3E%5D%3C-.-%5BSarake%5D,%20%5BSarake%5D1-9%5BRuutu%5D)
+![Luokkakaavio] (http://yuml.me/diagram/scruffy/class/%5BPelialusta%5D1-81%5BRuutu%5D,%20%5BRuutu%5D9-1%5BRivi%5D,%20%5BRivi%5D18-1%5BPelialusta%5D,%20%5BRuudukko%5D1-9%5BRuutu%5D,%20%5BPelialusta%5D1-9%5BRuudukko%5D,%20%5BPelialusta%5D1-9%5BSarake%5D,%20%5B%3C%3CNumeromuodostelma%3E%3E%5D%3C-.-%5BRuudukko%5D,%20%5B%3C%3CNumeromuodostelma%3E%3E%5D%3C-.-%5BRivi%5D,%20%5B%3C%3CNumeromuodostelma%3E%3E%5D%3C-.-%5BSarake%5D,%20%5BSarake%5D1-9%5BRuutu%5D)
+![Sekvenssikaavio tapahtumasta "Numeron asettaminen epäonnistuneesti"] (https://www.websequencediagrams.com/index.php?png=mscDkJKeS)
+![Sekvenssikaavio tapahtumasta "Numeron asettaminen onnistuneesti"] (https://www.websequencediagrams.com/index.php?png=msc56x3X7)

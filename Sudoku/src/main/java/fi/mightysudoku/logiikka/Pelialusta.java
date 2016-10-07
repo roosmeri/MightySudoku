@@ -106,16 +106,15 @@ public class Pelialusta {
      * ei ole rivillä, sarakkeella tai ruudukossa mihin kyseinen ruutu kuuluu.
      *
      * @param ruutu Käyttäjan valitsema ruutu
-     *
      * @param asetettavaArvo Käyttäjän valitsema asetettava arvo
      */
     public void asetaArvo(Ruutu ruutu, int asetettavaArvo) {
         if (onkoArvoJoRuudukossa(ruutu, asetettavaArvo)) {
-            ruutu.setArvo(0);
+            return;
         } else if (onkoArvoJoRivissa(ruutu, asetettavaArvo)) {
-            ruutu.setArvo(0);
+            return;
         } else if (onkoArvoJoSarakkeessa(ruutu, asetettavaArvo)) {
-            ruutu.setArvo(0);
+            return;
         } else {
             ruutu.setArvo(asetettavaArvo);
         }
@@ -127,6 +126,7 @@ public class Pelialusta {
      *
      * @param ruutu Käyttäjan valitsema ruutu
      * @param asetettavaArvo Käyttäjän valitsema asetettava arvo
+     * @return True jos on ja false jos ei.
      */
     public boolean onkoArvoJoSarakkeessa(Ruutu ruutu, int asetettavaArvo) {
         for (Sarake sarake : sarakkeet) {
@@ -145,6 +145,7 @@ public class Pelialusta {
      *
      * @param ruutu Käyttäjan valitsema ruutu
      * @param asetettavaArvo Käyttäjän valitsema asetettava arvo
+     * @return True jos on ja false jos ei.
      */
     public boolean onkoArvoJoRivissa(Ruutu ruutu, int asetettavaArvo) {
         for (Rivi rivi : this.rivit) {
@@ -162,8 +163,8 @@ public class Pelialusta {
      * arvoa.
      *
      * @param ruutu Käyttäjan valitsema ruutu
-     *
      * @param asetettavaArvo Käyttäjän valitsema asetettava arvo
+     * @return True jos on ja false jos ei.
      */
     public boolean onkoArvoJoRuudukossa(Ruutu ruutu, int asetettavaArvo) {
         // tarkistetaan kuuluuko ruudun ruudukkoon

@@ -13,6 +13,8 @@ public class Ruutu {
     /**
      * Konstruktori asettaa ruudun koordinaatit niiden ollessa väliltä [0,8].
      *
+     * @param x x-koordinaatti
+     * @param y y-koordinaatti
      */
     public Ruutu(int x, int y) {
         if (x >= 0 && x < 9) {
@@ -37,6 +39,11 @@ public class Ruutu {
         return y;
     }
 
+    /**
+     * Metodi asettaa arvon Ruudulle jos arvo on pätevä.
+     *
+     * @param arvo Asetettava arvo.
+     */
     public void setArvo(int arvo) {
         if (arvo > 0 && arvo < 10) {
             this.arvo = arvo;
