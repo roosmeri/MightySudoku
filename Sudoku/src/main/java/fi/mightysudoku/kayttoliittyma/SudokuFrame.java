@@ -11,6 +11,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.awt.event.ActionListener;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
@@ -27,7 +28,7 @@ public class SudokuFrame extends JFrame {
     private final int ruudunkoko = 60;
     private final int korkeus = ruudunkoko * 9;
     private final int leveys = ruudunkoko * 9;
-    private final Font fontti = new Font("Monospaced", Font.BOLD, 22);
+    private final Font fontti = new Font("Monospaced", Font.BOLD, 25);
     private int[][] numerot = new int[9][9];
     private ActionListener numerokuuntelija = new NumeronAsetusKuuntelija(this);
 
@@ -47,13 +48,11 @@ public class SudokuFrame extends JFrame {
     }
 
     /**
-     * Metodi määrittelee Container-olion, 
-     * asettaa JTextField-ruudut muokattavaksi, 
-     * jos niissä ei ollut valmiina asetettua arvoa.
-     * Metodi myös määrittelee ruudukon ja ruutujen ulkomuodon.
+     * Metodi määrittelee Container-olion, asettaa JTextField-ruudut
+     * muokattavaksi, jos niissä ei ollut valmiina asetettua arvoa. Metodi myös
+     * määrittelee ruudukon ja ruutujen ulkomuodon.
      *
      */
-
     public void sisallonAsetus() {
         Container cp = getContentPane();
         cp.setLayout(new GridLayout(9, 9));
@@ -64,14 +63,14 @@ public class SudokuFrame extends JFrame {
                 if (numerot[rivi][sarake] == (0)) {
                     alustanruudut[rivi][sarake].setText("");
                     alustanruudut[rivi][sarake].setEditable(true);
-                    alustanruudut[rivi][sarake].setBackground(Color.BLACK);
+                    alustanruudut[rivi][sarake].setBackground(Color.WHITE);
 
                     alustanruudut[rivi][sarake].addActionListener(numerokuuntelija);
                 } else {
                     alustanruudut[rivi][sarake].setText(numerot[rivi][sarake] + "");
                     alustanruudut[rivi][sarake].setEditable(false);
-                    alustanruudut[rivi][sarake].setBackground(Color.BLACK);
-                    alustanruudut[rivi][sarake].setForeground(Color.WHITE);
+                    alustanruudut[rivi][sarake].setBackground(Color.WHITE);
+                    alustanruudut[rivi][sarake].setForeground(Color.BLACK);
                 }
                 alustanruudut[rivi][sarake].setHorizontalAlignment(JTextField.CENTER);
                 alustanruudut[rivi][sarake].setFont(fontti);
@@ -86,6 +85,7 @@ public class SudokuFrame extends JFrame {
     }
 
     /**
+     * Metodi kutsuu asettaa ensin Pelialustaksi SudokuGeneraattorin antaman alustan.
      * Metodi asettaa Ruutu olioiden arvot niitä vastaaviin JTextField-olioihin.
      */
     public void asetanumerot() {
