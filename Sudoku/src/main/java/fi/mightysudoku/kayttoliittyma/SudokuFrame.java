@@ -4,11 +4,13 @@ import fi.mightysudoku.logiikka.Pelialusta;
 import fi.mightysudoku.logiikka.Ruutu;
 import fi.mightysudoku.logiikka.SudokuGeneraattori;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
@@ -22,10 +24,12 @@ public class SudokuFrame extends JFrame {
     private Pelialusta alusta = new Pelialusta();
     private SudokuGeneraattori generaattori = new SudokuGeneraattori(alusta);
     private JTextField[][] alustanruudut;
-    private final int ruudunkoko = 50;
+    private final int ruudunkoko = 60;
     private final int korkeus = ruudunkoko * 9;
     private final int leveys = ruudunkoko * 9;
+    private final Font fontti = new Font("Monospaced", Font.BOLD, 22);
     private int[][] numerot = new int[9][9];
+    private ActionListener numerokuuntelija = new NumeronAsetusKuuntelija(this);
 
     /**
      * Konstruktori asettaa otsikon ja asettaa numerot kohdilleen
@@ -38,19 +42,31 @@ public class SudokuFrame extends JFrame {
         super(otsikko);
         asetanumerot();
         this.alustanruudut = new JTextField[9][9];
+        sisallonAsetus();
+
+    }
+
+    /**
+     * Metodi määrittelee Container-olion, 
+     * asettaa JTextField-ruudut muokattavaksi, 
+     * jos niissä ei ollut valmiina asetettua arvoa.
+     * Metodi myös määrittelee ruudukon ja ruutujen ulkomuodon.
+     *
+     */
+
+    public void sisallonAsetus() {
         Container cp = getContentPane();
         cp.setLayout(new GridLayout(9, 9));
         for (int rivi = 0; rivi < 9; ++rivi) {
             for (int sarake = 0; sarake < 9; ++sarake) {
                 alustanruudut[rivi][sarake] = new JTextField();
                 cp.add(alustanruudut[rivi][sarake]);
-                if (alustanruudut[rivi][sarake].equals("0")) {
-//                if (varatut[rivi][sarake]) {
+                if (numerot[rivi][sarake] == (0)) {
                     alustanruudut[rivi][sarake].setText("");
                     alustanruudut[rivi][sarake].setEditable(true);
                     alustanruudut[rivi][sarake].setBackground(Color.BLACK);
 
-                    // actionlisteneri tanne
+                    alustanruudut[rivi][sarake].addActionListener(numerokuuntelija);
                 } else {
                     alustanruudut[rivi][sarake].setText(numerot[rivi][sarake] + "");
                     alustanruudut[rivi][sarake].setEditable(false);
@@ -58,6 +74,7 @@ public class SudokuFrame extends JFrame {
                     alustanruudut[rivi][sarake].setForeground(Color.WHITE);
                 }
                 alustanruudut[rivi][sarake].setHorizontalAlignment(JTextField.CENTER);
+                alustanruudut[rivi][sarake].setFont(fontti);
             }
         }
 
@@ -66,13 +83,13 @@ public class SudokuFrame extends JFrame {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-
     }
 
     /**
      * Metodi asettaa Ruutu olioiden arvot niitä vastaaviin JTextField-olioihin.
      */
     public void asetanumerot() {
+        this.alusta = generaattori.generoiPelialusta();
         for (Ruutu ruutu : alusta.getRuudut()) {
             numerot[ruutu.getX()][ruutu.getY()] = ruutu.getArvo();
         }
@@ -80,6 +97,10 @@ public class SudokuFrame extends JFrame {
 
     public Pelialusta getAlusta() {
         return alusta;
+    }
+
+    public JTextField getTextFieldAt(int x, int y) {
+        return alustanruudut[x][y];
     }
 
 }
