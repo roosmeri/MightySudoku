@@ -169,8 +169,8 @@ public class Pelialusta {
     public boolean onkoArvoJoRuudukossa(Ruutu ruutu, int asetettavaArvo) {
         // tarkistetaan kuuluuko ruudun ruudukkoon
         for (Ruudukko ruudukko : ruudukot) {
-            if (ruutu.getX() < ruudukko.getRuudukontunnus().charAt(0) + 2 && ruutu.getX() >= ruudukko.getRuudukontunnus().charAt(0)
-                    && ruutu.getY() < ruudukko.getRuudukontunnus().charAt(0) + 2 && ruutu.getY() >= ruudukko.getRuudukontunnus().charAt(1)) {
+            if (ruutu.getX() < Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(0)) + 2 && ruutu.getX() >= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(0))
+                    && ruutu.getY() < Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(1)) + 2 && ruutu.getY() >= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(1))) {
                 if (ruudukko.onkoArvoJo(asetettavaArvo)) {
                     return true;
                 }

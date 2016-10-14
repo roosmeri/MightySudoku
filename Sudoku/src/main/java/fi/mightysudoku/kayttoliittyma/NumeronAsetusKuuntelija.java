@@ -17,7 +17,7 @@ public class NumeronAsetusKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        JTextField valitturuutu = (JTextField) e.getSource();
+        JFormattedTextField valitturuutu = (JFormattedTextField) e.getSource();
 
         boolean found = false;
         int x = -1;

@@ -15,6 +15,7 @@ import javax.swing.WindowConstants;
 public class Kayttoliittyma implements Runnable {
 
     private SudokuFrame frame;
+    //private SudokuFramePanel frame;
 
     /**
      * Käyttöliittymän konstruktori ei tee mitään.
