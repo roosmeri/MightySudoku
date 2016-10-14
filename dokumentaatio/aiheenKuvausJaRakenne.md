@@ -17,5 +17,5 @@ Käyttäjän toiminnot:
 ![Luokkakaavio] (http://yuml.me/a978c070.png)
 
 ### Sekvenssikaavioita
-![Sekvenssikaavio tapahtumasta "Numeron asettaminen epäonnistuneesti"] (https://github.com/roosmeri/MightySudoku/blob/master/dokumentaatio/sekvenssi2.png?raw=true)
-![Sekvenssikaavio tapahtumasta "Numeron asettaminen onnistuneesti"] (https://github.com/roosmeri/MightySudoku/blob/master/dokumentaatio/sekvenssi.png?raw=true)
+![Sekvenssikaavio tapahtumasta "Epäonnistunut arvon asetus"] (https://github.com/roosmeri/MightySudoku/blob/master/dokumentaatio/sekvenssi2.2.png?raw=true)
+![Sekvenssikaavio tapahtumasta "Onnistunut arvon asetus"] (https://github.com/roosmeri/MightySudoku/blob/master/dokumentaatio/sekvenssi1.2.png?raw=true)
