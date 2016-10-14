@@ -57,6 +57,7 @@ public class SudokuFrame extends JFrame {
         vainNumerot.setValueClass(Integer.class);
         vainNumerot.setMinimum(1);
         vainNumerot.setMaximum(9);
+        vainNumerot.setAllowsInvalid(false);
     }
 
     /**
