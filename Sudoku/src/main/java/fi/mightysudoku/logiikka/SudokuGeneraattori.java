@@ -13,7 +13,7 @@ public class SudokuGeneraattori {
     Pelialusta alusta;
 
     /**
-     * Generaattorille asetetaan alusta johon asettaa arvot.
+     * Generaattorille annetaan alusta johon asettaa arvot.
      *
      * @param alusta Pelin alusta.
      */
@@ -22,7 +22,7 @@ public class SudokuGeneraattori {
     }
 
     /**
-     * Metodi asettaa alustalle valmiit numerot.
+     * Metodi asettaa alustalle valmiit numerot, joiden pohjalta peli voidaan selvittää.
      *
      * @return alusta täytettynä
      */
