@@ -7,14 +7,30 @@ import java.awt.event.ActionListener;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
 
+/**
+ * Luokka kuuntelee käyttöliittymässä tapahtuvia numeroasetuksia.
+ *
+ * @author Viliina
+ */
 public class NumeronAsetusKuuntelija implements ActionListener {
 
     private SudokuFrame sudoku;
 
+    /**
+     * Konstruktori asettaa SudokuFrame olion.
+     *
+     * @param sudoku SudokUFrame.
+     */
     public NumeronAsetusKuuntelija(SudokuFrame sudoku) {
         this.sudoku = sudoku;
+
     }
 
+    /**
+     * Metodi etsii ruudun johon pelaaja asetti arvon ja tarkistaa käykö arvo.
+     *
+     * @param e Numeroasetus.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         JFormattedTextField valitturuutu = (JFormattedTextField) e.getSource();

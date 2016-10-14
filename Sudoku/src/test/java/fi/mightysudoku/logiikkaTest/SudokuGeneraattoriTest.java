@@ -41,12 +41,12 @@ public class SudokuGeneraattoriTest {
         assertTrue(alusta.equals(generaattori.getAlusta()));
     }
 
-//    @Test
-//    public void generointiToimii() {
-//        Pelialusta generoitualusta = generaattori.generoiPelialusta();
-//        for (int i = 0; i < 9; i++) {
-//            assertTrue(0 < generoitualusta.getRuudut().get(i).getArvo());
-//        }
-//
-//    }
+    @Test
+    public void generointiToimii() {
+        Pelialusta generoitualusta = generaattori.generoiPelialusta();
+        for (int i = 0; i < 9; i++) {
+            assertTrue(0 <= generoitualusta.getRuudut().get(i).getArvo());
+        }
+
+    }
 }

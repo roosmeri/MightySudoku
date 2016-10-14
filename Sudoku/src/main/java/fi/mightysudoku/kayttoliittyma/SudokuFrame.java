@@ -53,11 +53,14 @@ public class SudokuFrame extends JFrame {
 
     }
 
+    /**
+     * Metodi määrittelee formatteria syotteelle.
+     */
+
     public void rajoitaSyotteenMuotoilua() {
         vainNumerot.setValueClass(Integer.class);
         vainNumerot.setMinimum(1);
         vainNumerot.setMaximum(9);
-        vainNumerot.setAllowsInvalid(false);
     }
 
     /**
@@ -113,7 +116,14 @@ public class SudokuFrame extends JFrame {
         return alusta;
     }
 
-    public JTextField getTextFieldAt(int x, int y) {
+    /**
+     * Metodi palauttaa JFormattedTextField:in joka sijaitsee kohdassa x,y.
+     *
+     * @param x x-koordinaatti.
+     * @param y y-koordinaatti.
+     * @return JFormattedTextField annetussa sijainnissa.
+     */
+    public JFormattedTextField getTextFieldAt(int x, int y) {
         return alustanruudut[x][y];
     }
 
