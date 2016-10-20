@@ -21,8 +21,9 @@ voi Ruutu-instanssin arvo olla nolla, eli ruutu on tyhjä.
 Numeromuodostelma-rajapintaa toteuttavat oliot koostuvat aina yhdeksästä Ruutu-oliosta, jotka on talletettu kunkin Numeromuodostelman omaan ArrayList:iin.
 Pelialusta luo ja tietää kaikki Ruudut ja Numeromuodostelmat. Pelialustan kautta tapahtuu pelaajan ruutuun asettaman arvon oikeellisuuden tarkistus ja oikeellisen
 arvon asetus Ruutu-olioon.
-SudokuGeneraattori ottaa konstruktorin parametrinä Pelialustan(jossa siis Ruuduissa ei valmiita arvoja) ja metodi generoiPelialusta() palauttaa Pelialustan valmiiden numeroiden kera Käyttöliittymään
-pelattavassa kunnossa, eli osa Ruuduista täytettynä ja osa tyhjänä pelaajan täytettävissä. 
+SudokuGeneraattori ottaa konstruktorin parametrinä Pelialustan(jossa siis Ruuduissa ei valmiita arvoja, kaikki nollaa) ja konstruktorissa tehdään uusi täytettävä
+sudokupeli niin monesti, että sille on SudokuTarkastaja-luokan mukaan ainakin yksi ratkaisu. Generaattoriluokan metodi getAlusta() palauttaa Pelialustan 
+valmiiden numeroiden kera käyttöliittymään pelattavassa kunnossa, eli osa Ruuduista täytettynä ja osa tyhjänä pelaajan täytettävissä. 
 
 ### Luokkakaavio
 
