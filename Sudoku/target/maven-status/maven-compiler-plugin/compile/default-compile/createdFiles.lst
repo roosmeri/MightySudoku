@@ -5,6 +5,7 @@ fi\mightysudoku\logiikka\Sarake.class
 fi\mightysudoku\MightyMain.class
 fi\mightysudoku\logiikka\Ruudukko.class
 fi\mightysudoku\logiikka\SudokuGeneraattori.class
+fi\mightysudoku\logiikka\SudokuSelvittaja.class
 fi\mightysudoku\kayttoliittyma\Kayttoliittyma.class
 fi\mightysudoku\logiikka\Rivi.class
 fi\mightysudoku\logiikka\Numeromuodostelma.class

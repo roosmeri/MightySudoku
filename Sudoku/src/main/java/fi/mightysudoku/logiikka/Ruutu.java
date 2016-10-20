@@ -1,5 +1,7 @@
 package fi.mightysudoku.logiikka;
 
+import java.util.HashSet;
+
 /**
  * Luokan edustaja edustaa Sudokuruudukon yhtä ruutua, jolla on koordinaatit ja
  * arvo väliltä [1,9].
@@ -40,12 +42,13 @@ public class Ruutu {
     }
 
     /**
-     * Metodi asettaa arvon Ruudulle jos arvo on pätevä.
+     * Metodi asettaa arvon Ruudulle jos arvo on pätevä. Nolla edustaa tyhjää
+     * ruutua.
      *
      * @param arvo Asetettava arvo.
      */
     public void setArvo(int arvo) {
-        if (arvo > 0 && arvo < 10) {
+        if (arvo > -1 && arvo < 10) {
             this.arvo = arvo;
         }
     }
@@ -59,5 +62,4 @@ public class Ruutu {
     public String toString() {
         return "Arvo:" + getArvo() + ", x:" + getX() + ", y:" + getY();
     }
-
 }

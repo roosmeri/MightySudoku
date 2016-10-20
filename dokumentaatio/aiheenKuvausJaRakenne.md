@@ -26,7 +26,7 @@ pelattavassa kunnossa, eli osa Ruuduista täytettynä ja osa tyhjänä pelaajan täyt
 
 ### Luokkakaavio
 
-![Luokkakaavio] (http://yuml.me/a978c070.png)
+![Luokkakaavio] (http://yuml.me/ec10cbd8.png)
 
 ### Sekvenssikaavioita
 ![Sekvenssikaavio tapahtumasta "Epäonnistunut arvon asetus"] (https://github.com/roosmeri/MightySudoku/blob/master/dokumentaatio/sekvenssi2.2.png?raw=true)

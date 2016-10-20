@@ -26,10 +26,7 @@ public class Pelialusta {
 
     }
 
-    /**
-     * Metodi luo pelialustan aliruudukot.
-     */
-    public void luoRuudukot() {
+    private void luoRuudukot() {
         int x = 0;
         int y = 0;
         for (int i = 0; i < 9; i++) {
@@ -55,11 +52,7 @@ public class Pelialusta {
 
     }
 
-    /**
-     * Metodi luo pelialustan rivit ja sarakkeet.
-     *
-     */
-    public void luoRivitJaSarakkeet() {
+    private void luoRivitJaSarakkeet() {
         //luodaan 18 rivia,9 horisontaalista ja 9 vertikaalista
         for (int i = 0; i < 9; i++) {
             ArrayList<Ruutu> rivinruudutx = new ArrayList<>();
@@ -79,12 +72,7 @@ public class Pelialusta {
         }
     }
 
-    /**
-     * Metodi luo pelialustan ruudut.
-     *
-     *
-     */
-    public void luoRuudut() {
+    private void luoRuudut() {
         //luodaan ruudut, 81 kappaletta, kaikilla oma koordinaattinsa
         int x = 0;
         int y = 0;
@@ -108,15 +96,17 @@ public class Pelialusta {
      * @param ruutu Käyttäjan valitsema ruutu
      * @param asetettavaArvo Käyttäjän valitsema asetettava arvo
      */
-    public void asetaArvo(Ruutu ruutu, int asetettavaArvo) {
+    public boolean asetaArvo(Ruutu ruutu, int asetettavaArvo) {
         if (onkoArvoJoRuudukossa(ruutu, asetettavaArvo)) {
-            return;
+            return false;
         } else if (onkoArvoJoRivissa(ruutu, asetettavaArvo)) {
-            return;
+            return false;
         } else if (onkoArvoJoSarakkeessa(ruutu, asetettavaArvo)) {
-            return;
+            return false;
         } else {
+
             ruutu.setArvo(asetettavaArvo);
+            return true;
         }
     }
 
@@ -169,8 +159,8 @@ public class Pelialusta {
     public boolean onkoArvoJoRuudukossa(Ruutu ruutu, int asetettavaArvo) {
         // tarkistetaan kuuluuko ruudun ruudukkoon
         for (Ruudukko ruudukko : ruudukot) {
-            if (ruutu.getX() < Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(0)) + 2 && ruutu.getX() >= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(0))
-                    && ruutu.getY() < Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(1)) + 2 && ruutu.getY() >= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(1))) {
+            if (ruutu.getX() <= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(0)) + 2 && ruutu.getX() >= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(0))
+                    && ruutu.getY() <= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(1)) + 2 && ruutu.getY() >= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(1))) {
                 if (ruudukko.onkoArvoJo(asetettavaArvo)) {
                     return true;
                 }
@@ -193,6 +183,21 @@ public class Pelialusta {
 
     public ArrayList<Sarake> getSarakkeet() {
         return sarakkeet;
+    }
+    /**
+     * Metodi hakee ruuduista yhden ruudun joka on annetussa sijainnissa.
+     * @param x x-koordinaatti.
+     * @param y y-koordinaatti.
+     * @return löydetty ruutu tai null, jos ei löytynyt.
+     */
+
+    public Ruutu haeRuutu(int x, int y) {
+        for (Ruutu ruutu : ruudut) {
+            if (ruutu.getX() == x && ruutu.getY() == y) {
+                return ruutu;
+            }
+        }
+        return null;
     }
 
 }

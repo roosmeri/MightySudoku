@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -33,7 +34,8 @@ public class NumeronAsetusKuuntelija implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        JFormattedTextField valitturuutu = (JFormattedTextField) e.getSource();
+        //JFormattedTextField valitturuutu = (JFormattedTextField) e.getSource();
+        JTextField valitturuutu = (JTextField) e.getSource();
 
         boolean found = false;
         int x = -1;
@@ -47,21 +49,27 @@ public class NumeronAsetusKuuntelija implements ActionListener {
                 }
             }
         }
+        Ruutu ruutu = sudoku.getAlusta().haeRuutu(x, y);
         String syotetty = sudoku.getTextFieldAt(x, y).getText();
-        if (syotetty.isEmpty()) {
+        if (syotetty.length() > 1) {
+            sudoku.getTextFieldAt(x, y).setText("");
+        } else if (syotetty.isEmpty()) {
+            ruutu.setArvo(0);
             sudoku.getTextFieldAt(x, y).setBackground(Color.WHITE);
-        }
-        for (Ruutu ruutu : sudoku.getAlusta().getRuudut()) {
-            if (ruutu.getY() == y && ruutu.getX() == x) {
-                sudoku.getAlusta().asetaArvo(ruutu, Integer.parseInt(syotetty));
-                if (ruutu.getArvo() == Integer.parseInt(syotetty)) {
-                    sudoku.getTextFieldAt(x, y).setBackground(Color.green);
-                } else {
-                    sudoku.getTextFieldAt(x, y).setBackground(Color.red);
-                }
-                break;
+        } else if (Character.digit(syotetty.charAt(0), 10) < 10 && Character.digit(syotetty.charAt(0), 10) > 0) {
+
+            if (sudoku.getAlusta().asetaArvo(ruutu, Integer.parseInt(syotetty))) {
+                sudoku.getTextFieldAt(x, y).setBackground(Color.green);
+            } else {
+                sudoku.getAlusta().haeRuutu(x, y).setArvo(Integer.parseInt(syotetty));
+                sudoku.getTextFieldAt(x, y).setBackground(Color.red);
             }
+        } else {
+            sudoku.getTextFieldAt(x, y).setText("");;
         }
 
+        if (sudoku.onkoRatkaistu()) {
+            JOptionPane.showMessageDialog(sudoku, "Ratkaisit sudokun!");
+        }
     }
 }
