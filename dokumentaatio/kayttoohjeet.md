@@ -15,6 +15,7 @@ pelin ratkeamiseen, sill‰ se pit‰‰ lukita enterill‰ ja todeta oikeaksi tai v‰‰r‰
 Mighty Sudoku kertoo heti onko asettamasi arvo oikein - jos ruutu muuttuu punaiseksi,
 joko samalla rivill‰, pystyrivill‰ tai aliruudukossa on jo kyseinen numero ja numero ei sovi.
 Jos taas asettamasi numero on hyv‰ksytt‰v‰, muuttuu ruutu vihre‰ksi.
+Asettamansa numeron voi aina poistaa backspace-n‰pp‰imell‰, oli se oikein tai v‰‰rin.
 Peliruudukon voi aloittaa alusta painamalla "Aloita alusta"-painiketta ruudukon alapuolella.
 T‰llˆin kaikki Pelaajan t‰ytt‰m‰t ruudut tyhjennet‰‰n.
 

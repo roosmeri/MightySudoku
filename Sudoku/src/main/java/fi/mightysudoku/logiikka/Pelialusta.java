@@ -104,15 +104,7 @@ public class Pelialusta {
         }
     }
 
-    /**
-     * Metodi tarkistaa onko Käyttäjän valitseman ruudun sarakkeessa jo valittua
-     * arvoa.
-     *
-     * @param ruutu Käyttäjan valitsema ruutu
-     * @param asetettavaArvo Käyttäjän valitsema asetettava arvo
-     * @return True jos on ja false jos ei.
-     */
-    public boolean onkoArvoJoSarakkeessa(Ruutu ruutu, int asetettavaArvo) {
+    private boolean onkoArvoJoSarakkeessa(Ruutu ruutu, int asetettavaArvo) {
         for (Sarake sarake : sarakkeet) {
             if (sarake.getSaraketunnus() == ruutu.getX()) {
                 if (sarake.onkoArvoJo(asetettavaArvo)) {
@@ -123,15 +115,7 @@ public class Pelialusta {
         return false;
     }
 
-    /**
-     * Metodi tarkistaa onko Käyttäjän valitseman ruudun rivissa jo valittua
-     * arvoa.
-     *
-     * @param ruutu Käyttäjan valitsema ruutu
-     * @param asetettavaArvo Käyttäjän valitsema asetettava arvo
-     * @return True jos on ja false jos ei.
-     */
-    public boolean onkoArvoJoRivissa(Ruutu ruutu, int asetettavaArvo) {
+    private boolean onkoArvoJoRivissa(Ruutu ruutu, int asetettavaArvo) {
         for (Rivi rivi : this.rivit) {
             if (rivi.getRivitunnus() == ruutu.getY()) {
                 if (rivi.onkoArvoJo(asetettavaArvo)) {
@@ -142,16 +126,7 @@ public class Pelialusta {
         return false;
     }
 
-    /**
-     * Metodi tarkistaa onko Käyttäjän valitseman ruudun ruudukossa jo valittua
-     * arvoa.
-     *
-     * @param ruutu Käyttäjan valitsema ruutu
-     * @param asetettavaArvo Käyttäjän valitsema asetettava arvo
-     * @return True jos on ja false jos ei.
-     */
-    public boolean onkoArvoJoRuudukossa(Ruutu ruutu, int asetettavaArvo) {
-        // tarkistetaan kuuluuko ruudun ruudukkoon
+    private boolean onkoArvoJoRuudukossa(Ruutu ruutu, int asetettavaArvo) {
         for (Ruudukko ruudukko : ruudukot) {
             if (ruutu.getX() <= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(0)) + 2 && ruutu.getX() >= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(0))
                     && ruutu.getY() <= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(1)) + 2 && ruutu.getY() >= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(1))) {
@@ -194,5 +169,4 @@ public class Pelialusta {
         }
         return null;
     }
-
 }

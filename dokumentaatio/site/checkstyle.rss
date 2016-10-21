@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 11,
-             Errors: 0,
+      <title>File: 13,
+             Errors: 1,
              Warnings: 0,
              Infos: 0
       </title>
@@ -55,26 +55,12 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.mightysudoku.kayttoliittyma.Kayttoliittyma.java">fi/mightysudoku/kayttoliittyma/Kayttoliittyma.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.mightysudoku.MightyMain.java">fi/mightysudoku/MightyMain.java</a>
                 </td>
                 <td>
                   0
@@ -102,35 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.mightysudoku.logiikka.Pelialusta.java">fi/mightysudoku/logiikka/Pelialusta.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.mightysudoku.logiikka.Ruudukko.java">fi/mightysudoku/logiikka/Ruudukko.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.mightysudoku.logiikka.Numeromuodostelma.java">fi/mightysudoku/logiikka/Numeromuodostelma.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.mightysudoku.logiikka.SudokuTarkastaja.java">fi/mightysudoku/logiikka/SudokuTarkastaja.java</a>
                 </td>
                 <td>
                   0
@@ -173,6 +131,76 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.mightysudoku.logiikka.Ruutu.java">fi/mightysudoku/logiikka/Ruutu.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.mightysudoku.MightyMain.java">fi/mightysudoku/MightyMain.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.mightysudoku.kayttoliittyma.MenuNappulaKuuntelija.java">fi/mightysudoku/kayttoliittyma/MenuNappulaKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.mightysudoku.logiikka.Pelialusta.java">fi/mightysudoku/logiikka/Pelialusta.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.mightysudoku.logiikka.Ruudukko.java">fi/mightysudoku/logiikka/Ruudukko.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.mightysudoku.logiikka.Numeromuodostelma.java">fi/mightysudoku/logiikka/Numeromuodostelma.java</a>
                 </td>
                 <td>
                   0

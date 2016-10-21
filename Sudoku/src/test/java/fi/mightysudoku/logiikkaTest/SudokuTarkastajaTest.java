@@ -57,6 +57,7 @@ public class SudokuTarkastajaTest {
 
         }
     }
+//tarkistetaan, että selviaako() metodi todella tunnistaa mahdottoman pelin
 
     @Test
     public void selviaakoPalauttaaFalseJosMahdotonPeli() {
@@ -86,5 +87,36 @@ public class SudokuTarkastajaTest {
             x++;
         }
         assertFalse(this.tarkastaja.selviaako(this.alusta));
+    }
+
+    @Test
+    public void selviaakoPalauttaaTrueJosMahdollinenPeli() {
+        this.alusta = new Pelialusta();
+        this.tarkastaja = new SudokuTarkastaja();
+        int[][] mahdotollinenpohja = {{0, 0, 0, 0, 0, 6, 0, 2, 7},
+        {5, 0, 0, 0, 3, 2, 0, 0, 9},
+        {0, 0, 0, 0, 0, 0, 1, 6, 0},
+        {0, 0, 7, 0, 0, 0, 0, 5, 0},
+        {0, 0, 6, 0, 0, 4, 0, 3, 2},
+        {9, 0, 5, 1, 0, 0, 8, 0, 6},
+        {0, 0, 8, 5, 0, 0, 0, 0, 0},
+        {1, 0, 0, 0, 0, 3, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 3, 0, 5}
+        };
+        int x = 0;
+        int y = 0;
+        for (int i = 0; i < 81; i++) {
+            if (x == 8) {
+                if (y == 8) {
+                    break;
+                } else {
+                    x = 0;
+                    y++;
+                }
+            }
+            this.alusta.getRuudut().get(i).setArvo(mahdotollinenpohja[x][y]);
+            x++;
+        }
+        assertTrue(this.tarkastaja.selviaako(this.alusta));
     }
 }
