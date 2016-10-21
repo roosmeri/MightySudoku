@@ -122,6 +122,11 @@ public class SudokuGeneraattori {
         }
     }
 
+    /**
+     * Metodi palauttaa luodun osittain täytetyn sudokupohjan.
+     *
+     * @return Pelialusta alusta pelivalmiina.
+     */
     public Pelialusta getAlusta() {
         return alusta;
     }

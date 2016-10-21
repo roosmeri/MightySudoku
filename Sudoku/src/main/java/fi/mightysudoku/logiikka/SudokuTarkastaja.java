@@ -12,7 +12,7 @@ import java.util.HashSet;
 public class SudokuTarkastaja {
 
     private Pelialusta peli;
-    ArrayList<ArrayList> ratkaisut;
+    ArrayList<ArrayList<Ruutu>> ratkaisut;
     HashSet<Integer> mahdollisetArvot = new HashSet<>();
 
     /**
@@ -35,7 +35,7 @@ public class SudokuTarkastaja {
         return false;
     }
 
-    private ArrayList<ArrayList> selvita() {
+    private ArrayList<ArrayList<Ruutu>> selvita() {
 
         this.ratkaisut = new ArrayList<>();
         ArrayList<Ruutu> tyhjat = getTyhjat();
@@ -59,7 +59,7 @@ public class SudokuTarkastaja {
             return;
         }
         if (indeksi >= tyhjat.size()) {
-            ratkaisut.add(new ArrayList<>(selvitetyt));
+            ratkaisut.add(new ArrayList<Ruutu>(selvitetyt));
             return;
         }
 
@@ -99,4 +99,9 @@ public class SudokuTarkastaja {
         this.mahdollisetArvot.removeAll(peli.getSarakkeet().get(ruutu.getY()).getRuudut());
         return this.mahdollisetArvot;
     }
+
+    public ArrayList<ArrayList<Ruutu>> getRatkaisut() {
+        return ratkaisut;
+    }
+
 }

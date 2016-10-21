@@ -5,23 +5,27 @@ import fi.mightysudoku.logiikka.Ruutu;
 import fi.mightysudoku.logiikka.SudokuGeneraattori;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.ComponentOrientation;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.awt.event.ActionListener;
-import java.text.NumberFormat;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.text.ParseException;
 import java.util.Random;
 import java.util.logging.Level;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.text.NumberFormatter;
 
 /**
  * Luokka on JFramen aliluokka, joka muodostaa visuaalisen esityksen pelistä.
@@ -32,15 +36,14 @@ public class SudokuFrame extends JFrame {
 
     private Pelialusta alusta = new Pelialusta();
     private SudokuGeneraattori generaattori;
-    //private JFormattedTextField[][] alustanruudut;
     private JTextField[][] alustanruudut;
     private final int ruudunkoko = 80;
     private final int korkeus = ruudunkoko * 9;
     private final int leveys = ruudunkoko * 9;
     private final Font fontti = new Font("Monospaced", Font.BOLD, 28);
     private int[][] numerot = new int[9][9];
-    private ActionListener numerokuuntelija = new NumeronAsetusKuuntelija(this);
-    //private NumberFormatter vainNumerot = new NumberFormatter(NumberFormat.getInstance());
+    //private ActionListener numerokuuntelija = new NumeronAsetusKuuntelija(this);
+    //private ActionListener nappulakuuntelija = new MenuNappulaKuuntelija(this);
 
     /**
      * Konstruktori asettaa otsikon ja asettaa numerot kohdilleen
@@ -51,22 +54,23 @@ public class SudokuFrame extends JFrame {
      */
     public SudokuFrame(String otsikko) throws HeadlessException {
         super(otsikko);
-        //rajoitaSyotteenMuotoilua();
-        asetanumerot(1);
         this.alustanruudut = new JTextField[9][9];
         sisallonAsetus();
+        Object[] vaihtoehdot = {"Helppo", "Keskitaso", "Vaikea"};
+        String taso = (String) JOptionPane.showInputDialog(this, "Minkä tasoista sudokua haluat pelata?", "Uusi peli", JOptionPane.PLAIN_MESSAGE, null, vaihtoehdot, "Helppo");
+        if (taso != null && taso.length() > 0) {
+            if (taso.equals("Helppo")) {
+                asetanumerot(1);
+            } else if (taso.equals("Keskitaso")) {
+                asetanumerot(2);
+            } else if (taso.equals("Vaikea")) {
+                asetanumerot(3);
+            }
+        } else {
+            return;
+        }
 
     }
-
-//    /**
-//     * Metodi määrittelee formatteria syotteelle.
-//     */
-//    public void rajoitaSyotteenMuotoilua() {
-//        vainNumerot.setValueClass(Integer.class);
-//        vainNumerot.setAllowsInvalid(true);
-//        vainNumerot.setMinimum(1);
-//        vainNumerot.setMaximum(9);
-//    }
 
     /**
      * Metodi määrittelee Container-olion, asettaa JTextField-ruudut
@@ -76,18 +80,57 @@ public class SudokuFrame extends JFrame {
      */
     public void sisallonAsetus() {
         Container container = getContentPane();
-        container.setLayout(new GridLayout(10, 9));
+        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+        luoRuudukko(container);
+
+        luoPainikkeet(container);
+        container.setPreferredSize(new Dimension(leveys, korkeus + 100));
+        pack();
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+
+    private void luoPainikkeet(Container container) {
+        JPanel painikePaneeli = new JPanel();
+
+        painikePaneeli.setLayout(new GridLayout(1, 3));
+        painikePaneeli.setPreferredSize(new Dimension(720, 100));
+        container.add(painikePaneeli);
+        JButton lopeta = new JButton("Lopeta");
+        JButton uusipeli = new JButton("Uusi Peli");
+        JButton tyhjenna = new JButton("Aloita alusta");
+        lopeta.setFont(new Font("Monospaced", Font.BOLD, 20));
+        uusipeli.setFont(new Font("Monospaced", Font.BOLD, 20));
+        tyhjenna.setFont(new Font("Monospaced", Font.BOLD, 20));
+        ActionListener nappulakuuntelija = new MenuNappulaKuuntelija(this);
+
+        lopeta.addActionListener(nappulakuuntelija);
+        uusipeli.addActionListener(nappulakuuntelija);
+        tyhjenna.addActionListener(nappulakuuntelija);
+        painikePaneeli.add(tyhjenna);
+        painikePaneeli.add(uusipeli);
+        painikePaneeli.add(lopeta);
+
+    }
+
+    private void luoRuudukko(Container container) {
+        JPanel sudokuruudukko = new JPanel();
+        sudokuruudukko.setLayout(new GridLayout(9, 9));
+        sudokuruudukko.setPreferredSize(new Dimension(korkeus, leveys));
+        container.add(sudokuruudukko);
+        KeyListener numerokuuntelija = new NumeronAsetusKuuntelija(this);
         for (int rivi = 0; rivi < 9; ++rivi) {
             for (int sarake = 0; sarake < 9; ++sarake) {
-                //alustanruudut[rivi][sarake] = new JFormattedTextField(vainNumerot);
                 alustanruudut[rivi][sarake] = new JTextField();
-                container.add(alustanruudut[rivi][sarake]);
+                asetaReunat(rivi, sarake);
+                sudokuruudukko.add(alustanruudut[rivi][sarake]);
                 if (numerot[rivi][sarake] == (0)) {
                     alustanruudut[rivi][sarake].setText("");
                     alustanruudut[rivi][sarake].setEditable(true);
                     alustanruudut[rivi][sarake].setBackground(Color.WHITE);
 
-                    alustanruudut[rivi][sarake].addActionListener(numerokuuntelija);
+                    alustanruudut[rivi][sarake].addKeyListener(numerokuuntelija);
                 } else {
                     alustanruudut[rivi][sarake].setText(numerot[rivi][sarake] + "");
                     alustanruudut[rivi][sarake].setEditable(false);
@@ -98,24 +141,20 @@ public class SudokuFrame extends JFrame {
                 alustanruudut[rivi][sarake].setFont(fontti);
             }
         }
-        JPanel menu = luoMenu();
-        container.add(menu);
-        container.setPreferredSize(new Dimension(korkeus, leveys));
-        pack();
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
     }
 
-    private JPanel luoMenu() {
-        //korjata pitää
-        JPanel menuframe = new JPanel(new GridLayout(1, 3));
-        menuframe.setOpaque(false);
-        menuframe.setLayout(new GridLayout(1, 3));
-        JButton lopeta = new JButton();
-        menuframe.add(lopeta);
-        menuframe.setFont(fontti);
-        return menuframe;
+    private void asetaReunat(int rivi, int sarake) {
+        alustanruudut[rivi][sarake].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+        if (rivi == 2 || rivi == 5) {
+            alustanruudut[rivi][sarake].setBorder(BorderFactory.createMatteBorder(1, 1, 3, 1, Color.BLACK));
+        }
+        if (sarake == 2 || sarake == 5) {
+            if (rivi == 2 || rivi == 5) {
+                alustanruudut[rivi][sarake].setBorder(BorderFactory.createMatteBorder(1, 1, 3, 3, Color.BLACK));
+            } else {
+                alustanruudut[rivi][sarake].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 3, Color.BLACK));
+            }
+        }
     }
 
     /**
@@ -130,6 +169,22 @@ public class SudokuFrame extends JFrame {
         this.alusta = generaattori.getAlusta();
         for (Ruutu ruutu : alusta.getRuudut()) {
             numerot[ruutu.getX()][ruutu.getY()] = ruutu.getArvo();
+        }
+        for (int rivi = 0; rivi < 9; ++rivi) {
+            for (int sarake = 0; sarake < 9; ++sarake) {
+                if (numerot[rivi][sarake] == (0)) {
+                    alustanruudut[rivi][sarake].setText("");
+                    alustanruudut[rivi][sarake].setEditable(true);
+                    alustanruudut[rivi][sarake].setBackground(Color.WHITE);
+
+                } else {
+                    alustanruudut[rivi][sarake].setText(numerot[rivi][sarake] + "");
+                    alustanruudut[rivi][sarake].setEditable(false);
+                    alustanruudut[rivi][sarake].setBackground(Color.LIGHT_GRAY);
+                    alustanruudut[rivi][sarake].setForeground(Color.BLACK);
+                }
+            }
+
         }
     }
 
@@ -176,7 +231,29 @@ public class SudokuFrame extends JFrame {
                 }
             }
         }
+        lukitseKaikkiRuudut();
         return true;
 
+    }
+
+    public void lukitseKaikkiRuudut() {
+        for (int i = 0; i < alustanruudut.length; i++) {
+            for (int j = 0; j < alustanruudut.length; j++) {
+                getTextFieldAt(i, j).setEnabled(false);
+            }
+        }
+    }
+
+    public void tyhjennaTaytetyt() {
+        for (int i = 0; i < alustanruudut.length; i++) {
+            for (int j = 0; j < alustanruudut.length; j++) {
+                if (getTextFieldAt(i, j).isEditable()) {
+                    getTextFieldAt(i, j).setText("");
+                    getTextFieldAt(i, j).setBackground(Color.WHITE);
+                    alusta.haeRuutu(i, j).setArvo(0);
+                }
+            }
+
+        }
     }
 }

@@ -4,6 +4,8 @@ import fi.mightysudoku.logiikka.Ruutu;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -13,7 +15,7 @@ import javax.swing.JTextField;
  *
  * @author Viliina
  */
-public class NumeronAsetusKuuntelija implements ActionListener {
+public class NumeronAsetusKuuntelija implements KeyListener {
 
     private SudokuFrame sudoku;
 
@@ -32,8 +34,9 @@ public class NumeronAsetusKuuntelija implements ActionListener {
      *
      * @param e Numeroasetus.
      */
+    //JFormattedTextField valitturuutu = (JFormattedTextField) e.getSource();
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void keyTyped(KeyEvent e) {
         //JFormattedTextField valitturuutu = (JFormattedTextField) e.getSource();
         JTextField valitturuutu = (JTextField) e.getSource();
 
@@ -53,6 +56,7 @@ public class NumeronAsetusKuuntelija implements ActionListener {
         String syotetty = sudoku.getTextFieldAt(x, y).getText();
         if (syotetty.length() > 1) {
             sudoku.getTextFieldAt(x, y).setText("");
+            sudoku.getTextFieldAt(x, y).setBackground(Color.WHITE);
         } else if (syotetty.isEmpty()) {
             ruutu.setArvo(0);
             sudoku.getTextFieldAt(x, y).setBackground(Color.WHITE);
@@ -70,6 +74,15 @@ public class NumeronAsetusKuuntelija implements ActionListener {
 
         if (sudoku.onkoRatkaistu()) {
             JOptionPane.showMessageDialog(sudoku, "Ratkaisit sudokun!");
+
         }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
     }
 }
