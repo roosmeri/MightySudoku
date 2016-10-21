@@ -9,8 +9,6 @@ import java.awt.ComponentOrientation;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.awt.event.ActionListener;
@@ -42,12 +40,12 @@ public class SudokuFrame extends JFrame {
     private final int leveys = ruudunkoko * 9;
     private final Font fontti = new Font("Monospaced", Font.BOLD, 28);
     private int[][] numerot = new int[9][9];
-    //private ActionListener numerokuuntelija = new NumeronAsetusKuuntelija(this);
-    //private ActionListener nappulakuuntelija = new MenuNappulaKuuntelija(this);
+    private JButton tyhjenna;
 
     /**
      * Konstruktori asettaa otsikon ja asettaa numerot kohdilleen
-     * sudokuruudukkoon.
+     * sudokuruudukkoon ja kysyy sitten Kayttajalta vaikeustasoa jonka
+     * perusteella valmiit numerot asetetaan ruudukkoon.
      *
      * @param otsikko On ikkunan otsikko.
      * @throws HeadlessException .
@@ -69,37 +67,33 @@ public class SudokuFrame extends JFrame {
         } else {
             return;
         }
-
     }
 
     /**
-     * Metodi määrittelee Container-olion, asettaa JTextField-ruudut
-     * muokattavaksi, jos niissä ei ollut valmiina asetettua arvoa. Metodi myös
-     * määrittelee ruudukon ja ruutujen ulkomuodon.
+     * Metodi määrittelee Container-olion, sen ulkomuodon,kutsuu sitten
+     * sudokuruudukon asettavaa metodia luoRuudukko(Container container) ja
+     * sitten alareunamenun luovaa metodia luoPainikkeet(Container container).
      *
      */
     public void sisallonAsetus() {
         Container container = getContentPane();
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         luoRuudukko(container);
-
         luoPainikkeet(container);
         container.setPreferredSize(new Dimension(leveys, korkeus + 100));
         pack();
-
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
 
     private void luoPainikkeet(Container container) {
         JPanel painikePaneeli = new JPanel();
-
         painikePaneeli.setLayout(new GridLayout(1, 3));
         painikePaneeli.setPreferredSize(new Dimension(720, 100));
         container.add(painikePaneeli);
         JButton lopeta = new JButton("Lopeta");
-        JButton uusipeli = new JButton("Uusi Peli");
-        JButton tyhjenna = new JButton("Aloita alusta");
+        JButton uusipeli = new JButton("Uusi peli");
+        tyhjenna = new JButton("Aloita alusta");
         lopeta.setFont(new Font("Monospaced", Font.BOLD, 20));
         uusipeli.setFont(new Font("Monospaced", Font.BOLD, 20));
         tyhjenna.setFont(new Font("Monospaced", Font.BOLD, 20));
@@ -111,7 +105,6 @@ public class SudokuFrame extends JFrame {
         painikePaneeli.add(tyhjenna);
         painikePaneeli.add(uusipeli);
         painikePaneeli.add(lopeta);
-
     }
 
     private void luoRuudukko(Container container) {
@@ -129,7 +122,6 @@ public class SudokuFrame extends JFrame {
                     alustanruudut[rivi][sarake].setText("");
                     alustanruudut[rivi][sarake].setEditable(true);
                     alustanruudut[rivi][sarake].setBackground(Color.WHITE);
-
                     alustanruudut[rivi][sarake].addKeyListener(numerokuuntelija);
                 } else {
                     alustanruudut[rivi][sarake].setText(numerot[rivi][sarake] + "");
@@ -164,8 +156,8 @@ public class SudokuFrame extends JFrame {
      * @param taso Vaikeustaso.
      */
     public void asetanumerot(int taso) {
+        tyhjenna.setEnabled(true);
         generoiPelialusta(taso);
-
         this.alusta = generaattori.getAlusta();
         for (Ruutu ruutu : alusta.getRuudut()) {
             numerot[ruutu.getX()][ruutu.getY()] = ruutu.getArvo();
@@ -176,7 +168,6 @@ public class SudokuFrame extends JFrame {
                     alustanruudut[rivi][sarake].setText("");
                     alustanruudut[rivi][sarake].setEditable(true);
                     alustanruudut[rivi][sarake].setBackground(Color.WHITE);
-
                 } else {
                     alustanruudut[rivi][sarake].setText(numerot[rivi][sarake] + "");
                     alustanruudut[rivi][sarake].setEditable(false);
@@ -207,11 +198,11 @@ public class SudokuFrame extends JFrame {
     }
 
     /**
-     * Metodi palauttaa JFormattedTextField:in joka sijaitsee kohdassa x,y.
+     * Metodi palauttaa JTextField:in joka sijaitsee kohdassa x,y.
      *
      * @param x x-koordinaatti.
      * @param y y-koordinaatti.
-     * @return JFormattedTextField annetussa sijainnissa.
+     * @return JTextField annetussa sijainnissa.
      */
     public JTextField getTextFieldAt(int x, int y) {
         return alustanruudut[x][y];
@@ -226,24 +217,29 @@ public class SudokuFrame extends JFrame {
     public boolean onkoRatkaistu() {
         for (int i = 0; i < alustanruudut.length; i++) {
             for (int j = 0; j < alustanruudut.length; j++) {
-                if (getTextFieldAt(i, j).getBackground() == Color.red || getTextFieldAt(i, j).getBackground() == Color.WHITE) {
+                if (getTextFieldAt(i, j).getBackground() == Color.red
+                        || getTextFieldAt(i, j).getBackground() == Color.WHITE) {
                     return false;
                 }
             }
         }
         lukitseKaikkiRuudut();
+        tyhjenna.setEnabled(false);
         return true;
 
     }
 
-    public void lukitseKaikkiRuudut() {
+    private void lukitseKaikkiRuudut() {
         for (int i = 0; i < alustanruudut.length; i++) {
             for (int j = 0; j < alustanruudut.length; j++) {
-                getTextFieldAt(i, j).setEnabled(false);
+                getTextFieldAt(i, j).setEditable(false);
             }
         }
     }
 
+    /**
+     * Metodi tyhjentää kaikki käyttäjän täytettävissä olleet ruudut.
+     */
     public void tyhjennaTaytetyt() {
         for (int i = 0; i < alustanruudut.length; i++) {
             for (int j = 0; j < alustanruudut.length; j++) {

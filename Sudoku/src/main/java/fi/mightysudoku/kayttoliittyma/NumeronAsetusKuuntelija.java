@@ -31,13 +31,13 @@ public class NumeronAsetusKuuntelija implements KeyListener {
 
     /**
      * Metodi etsii ruudun johon pelaaja asetti arvon ja tarkistaa käykö arvo.
+     * Ilmoittaa myös jos peli ratkaistiin siirrolla.
      *
      * @param e Numeroasetus.
      */
-    //JFormattedTextField valitturuutu = (JFormattedTextField) e.getSource();
     @Override
     public void keyTyped(KeyEvent e) {
-        //JFormattedTextField valitturuutu = (JFormattedTextField) e.getSource();
+
         JTextField valitturuutu = (JTextField) e.getSource();
 
         boolean found = false;

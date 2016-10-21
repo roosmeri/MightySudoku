@@ -11,13 +11,18 @@ import javax.swing.JOptionPane;
  * @author Viliina
  */
 public class MenuNappulaKuuntelija implements ActionListener {
-    
+
     SudokuFrame sudoku;
-    
+
+    /**
+     * Konstruktori asettaa SudokuFramen kuuntelijalle.
+     *
+     * @param sudokuframe SudokuFrame.
+     */
     public MenuNappulaKuuntelija(SudokuFrame sudokuframe) {
         this.sudoku = sudokuframe;
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton painettu = (JButton) e.getSource();
@@ -34,7 +39,7 @@ public class MenuNappulaKuuntelija implements ActionListener {
             if (varmistus == JOptionPane.YES_OPTION) {
                 sudoku.tyhjennaTaytetyt();
             }
-        } else if (painettu.getText().equals("Uusi Peli")) {
+        } else if (painettu.getText().equals("Uusi peli")) {
             Object[] vaihtoehdot = {"Helppo", "Keskitaso", "Vaikea"};
             String taso = (String) JOptionPane.showInputDialog(sudoku, "Minkä tasoista sudokua haluat pelata?", "Uusi peli", JOptionPane.PLAIN_MESSAGE, null, vaihtoehdot, "Helppo");
             if (taso != null && taso.length() > 0) {
@@ -45,10 +50,10 @@ public class MenuNappulaKuuntelija implements ActionListener {
                 } else if (taso.equals("Vaikea")) {
                     sudoku.asetanumerot(3);
                 }
-            }else {
+            } else {
                 return;
             }
         }
     }
-    
+
 }

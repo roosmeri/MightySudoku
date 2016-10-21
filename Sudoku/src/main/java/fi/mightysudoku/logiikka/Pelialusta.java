@@ -6,7 +6,6 @@ import java.util.ArrayList;
  * Luokka pitää sisällään ja alustaa kaikki pelialustaan kuuluvat komponentit,
  * rivit, sarakkeet, ruudukot ja itse ruudut.
  *
- *
  */
 public class Pelialusta {
 
@@ -23,7 +22,6 @@ public class Pelialusta {
         luoRuudut();
         luoRivitJaSarakkeet();
         luoRuudukot();
-
     }
 
     private void luoRuudukot() {
@@ -38,22 +36,17 @@ public class Pelialusta {
             if (i < 3) {
                 y = 3;
             }
-
             ArrayList<Ruutu> ruudukonRuudut = new ArrayList<>();
             for (Ruutu r : this.ruudut) {
                 if ((r.getX() < x) && (r.getX() >= (x - 3)) && (r.getY() < y) && (r.getY() >= (y - 3))) {
                     ruudukonRuudut.add(r);
-
                 }
             }
             this.ruudukot.add(new Ruudukko(ruudukonRuudut));
-
         }
-
     }
 
     private void luoRivitJaSarakkeet() {
-        //luodaan 18 rivia,9 horisontaalista ja 9 vertikaalista
         for (int i = 0; i < 9; i++) {
             ArrayList<Ruutu> rivinruudutx = new ArrayList<>();
             for (Ruutu ruutu : this.ruudut) {
@@ -73,7 +66,6 @@ public class Pelialusta {
     }
 
     private void luoRuudut() {
-        //luodaan ruudut, 81 kappaletta, kaikilla oma koordinaattinsa
         int x = 0;
         int y = 0;
         for (int i = 0; i < 81; i++) {
@@ -90,11 +82,14 @@ public class Pelialusta {
     }
 
     /**
-     * Metodi asettaa valittuun ruutuun Käyttäjän antaman arvon, jos samaa arvoa
-     * ei ole rivillä, sarakkeella tai ruudukossa mihin kyseinen ruutu kuuluu.
+     * Metodi asettaa valittuun ruutuun Käyttäjän antaman arvon ruutuun ja
+     * palauttaa false jos arvo on jo ruudun rivillä, sarakkeessa tai ruudukossa
+     * muuten true.
      *
      * @param ruutu Käyttäjan valitsema ruutu
      * @param asetettavaArvo Käyttäjän valitsema asetettava arvo
+     * @return false jos arvo on jo numeromuodostelmassa johon ruutu kuuluu,
+     * muuten true.
      */
     public boolean asetaArvo(Ruutu ruutu, int asetettavaArvo) {
         if (onkoArvoJoRuudukossa(ruutu, asetettavaArvo)) {
@@ -104,7 +99,6 @@ public class Pelialusta {
         } else if (onkoArvoJoSarakkeessa(ruutu, asetettavaArvo)) {
             return false;
         } else {
-
             ruutu.setArvo(asetettavaArvo);
             return true;
         }
@@ -184,13 +178,14 @@ public class Pelialusta {
     public ArrayList<Sarake> getSarakkeet() {
         return sarakkeet;
     }
+
     /**
-     * Metodi hakee ruuduista yhden ruudun joka on annetussa sijainnissa.
+     * Metodi hakee ruuduista yhden ruudun, joka on annetussa sijainnissa.
+     *
      * @param x x-koordinaatti.
      * @param y y-koordinaatti.
      * @return löydetty ruutu tai null, jos ei löytynyt.
      */
-
     public Ruutu haeRuutu(int x, int y) {
         for (Ruutu ruutu : ruudut) {
             if (ruutu.getX() == x && ruutu.getY() == y) {

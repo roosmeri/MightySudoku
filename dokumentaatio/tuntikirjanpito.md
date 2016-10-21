@@ -14,6 +14,7 @@ Päivä | Tunnit | Kuvaus
 13.10.2016 | 4.0h | Käyttöliittymää
 14.10.2016 | 6.5h | Käyttöliittymää, javadoccia, dokumentaation korjailua ja päivitystä
 20.10.2016 | 8.25h | Sudokun generoinnin toteuttamista, apuluokka SudokuTarkastaja luotu, käyttöliittymää korjailtu
+21.10.2016 | 9.5h | Käyttöliittymä tehty loppuun, dokumentaatiot viimeistelty
 
 
 
