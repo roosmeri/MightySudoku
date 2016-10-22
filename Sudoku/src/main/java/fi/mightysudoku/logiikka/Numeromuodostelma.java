@@ -12,6 +12,7 @@ public interface Numeromuodostelma {
      * vain siinä ruudussa mihin ollaan asettamassa.
      *
      * @param arvo .
+     * @param ruutu Ruutu johon arvo asetettaisiin.
      * @return True jos ja false jos ei.
      */
     boolean onkoArvoJo(Ruutu ruutu, int arvo);
