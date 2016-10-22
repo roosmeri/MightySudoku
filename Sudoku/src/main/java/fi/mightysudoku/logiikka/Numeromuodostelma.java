@@ -8,12 +8,13 @@ import java.util.ArrayList;
 public interface Numeromuodostelma {
 
     /**
-     * Tarkistetaan onko arvo jo numeromuodostelmassa.
+     * Tarkistetaan onko arvo jo numeromuodostelmassa, jos on niin se saa olla
+     * vain siinä ruudussa mihin ollaan asettamassa.
      *
      * @param arvo .
      * @return True jos ja false jos ei.
      */
-    boolean onkoArvoJo(int arvo);
+    boolean onkoArvoJo(Ruutu ruutu, int arvo);
 
     /**
      * Aika perus getteri.

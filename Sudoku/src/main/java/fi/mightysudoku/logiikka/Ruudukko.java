@@ -26,13 +26,19 @@ public class Ruudukko implements Numeromuodostelma {
      *
      * @param arvo.
      *
-     * @return True jos on ja false jos ei ole.
+     * @return True jos on ja false jos ei ole TAI sama arvo on siinä ruudussa
+     * mihina asetetaan.
      */
     @Override
-    public boolean onkoArvoJo(int arvo) {
+    public boolean onkoArvoJo(Ruutu ruutu, int arvo) {
+
         for (Ruutu r : this.ruudut) {
             if (r.getArvo() == arvo) {
-                return true;
+                if (r.getX() == ruutu.getX() && r.getY() == ruutu.getY()) {
+                    return false;
+                } else {
+                    return true;
+                }
             }
         }
         return false;

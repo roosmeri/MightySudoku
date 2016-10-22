@@ -41,7 +41,7 @@ public class RiviTest {
         rivi.getRuudut().get(0).setArvo(8);
         rivi.getRuudut().get(4).setArvo(8);
         rivi.getRuudut().get(5).setArvo(4);
-        assertTrue(rivi.onkoArvoJo(8));
+        assertTrue(rivi.onkoArvoJo(rivi.getRuudut().get(4), 8));
 
     }
 
@@ -49,7 +49,7 @@ public class RiviTest {
     public void toimiikoOnkoArvoJoJosEiOle() {
         rivi.getRuudut().get(0).setArvo(8);
         rivi.getRuudut().get(0).setArvo(7);
-        assertFalse(rivi.onkoArvoJo(8));
+        assertFalse(rivi.onkoArvoJo(rivi.getRuudut().get(0), 8));
 
     }
 

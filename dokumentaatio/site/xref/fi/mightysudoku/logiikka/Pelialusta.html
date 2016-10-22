@@ -115,7 +115,7 @@
 <a class="jxr_linenumber" name="L107" href="#L107">107</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> onkoArvoJoSarakkeessa(<a href="../../../fi/mightysudoku/logiikka/Ruutu.html">Ruutu</a> ruutu, <strong class="jxr_keyword">int</strong> asetettavaArvo) {
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>         <strong class="jxr_keyword">for</strong> (Sarake sarake : sarakkeet) {
 <a class="jxr_linenumber" name="L109" href="#L109">109</a>             <strong class="jxr_keyword">if</strong> (sarake.getSaraketunnus() == ruutu.getX()) {
-<a class="jxr_linenumber" name="L110" href="#L110">110</a>                 <strong class="jxr_keyword">if</strong> (sarake.onkoArvoJo(asetettavaArvo)) {
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>                 <strong class="jxr_keyword">if</strong> (sarake.onkoArvoJo(ruutu, asetettavaArvo)) {
 <a class="jxr_linenumber" name="L111" href="#L111">111</a>                     <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L112" href="#L112">112</a>                 }
 <a class="jxr_linenumber" name="L113" href="#L113">113</a>             }
@@ -126,7 +126,7 @@
 <a class="jxr_linenumber" name="L118" href="#L118">118</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> onkoArvoJoRivissa(<a href="../../../fi/mightysudoku/logiikka/Ruutu.html">Ruutu</a> ruutu, <strong class="jxr_keyword">int</strong> asetettavaArvo) {
 <a class="jxr_linenumber" name="L119" href="#L119">119</a>         <strong class="jxr_keyword">for</strong> (Rivi rivi : <strong class="jxr_keyword">this</strong>.rivit) {
 <a class="jxr_linenumber" name="L120" href="#L120">120</a>             <strong class="jxr_keyword">if</strong> (rivi.getRivitunnus() == ruutu.getY()) {
-<a class="jxr_linenumber" name="L121" href="#L121">121</a>                 <strong class="jxr_keyword">if</strong> (rivi.onkoArvoJo(asetettavaArvo)) {
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>                 <strong class="jxr_keyword">if</strong> (rivi.onkoArvoJo(ruutu, asetettavaArvo)) {
 <a class="jxr_linenumber" name="L122" href="#L122">122</a>                     <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L123" href="#L123">123</a>                 }
 <a class="jxr_linenumber" name="L124" href="#L124">124</a>             }
@@ -138,7 +138,7 @@
 <a class="jxr_linenumber" name="L130" href="#L130">130</a>         <strong class="jxr_keyword">for</strong> (Ruudukko ruudukko : ruudukot) {
 <a class="jxr_linenumber" name="L131" href="#L131">131</a>             <strong class="jxr_keyword">if</strong> (ruutu.getX() &lt;= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(0)) + 2 &amp;&amp; ruutu.getX() &gt;= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(0))
 <a class="jxr_linenumber" name="L132" href="#L132">132</a>                     &amp;&amp; ruutu.getY() &lt;= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(1)) + 2 &amp;&amp; ruutu.getY() &gt;= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(1))) {
-<a class="jxr_linenumber" name="L133" href="#L133">133</a>                 <strong class="jxr_keyword">if</strong> (ruudukko.onkoArvoJo(asetettavaArvo)) {
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>                 <strong class="jxr_keyword">if</strong> (ruudukko.onkoArvoJo(ruutu, asetettavaArvo)) {
 <a class="jxr_linenumber" name="L134" href="#L134">134</a>                     <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L135" href="#L135">135</a>                 }
 <a class="jxr_linenumber" name="L136" href="#L136">136</a>             }

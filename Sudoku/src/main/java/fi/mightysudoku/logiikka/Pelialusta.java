@@ -107,7 +107,7 @@ public class Pelialusta {
     private boolean onkoArvoJoSarakkeessa(Ruutu ruutu, int asetettavaArvo) {
         for (Sarake sarake : sarakkeet) {
             if (sarake.getSaraketunnus() == ruutu.getX()) {
-                if (sarake.onkoArvoJo(asetettavaArvo)) {
+                if (sarake.onkoArvoJo(ruutu, asetettavaArvo)) {
                     return true;
                 }
             }
@@ -118,7 +118,7 @@ public class Pelialusta {
     private boolean onkoArvoJoRivissa(Ruutu ruutu, int asetettavaArvo) {
         for (Rivi rivi : this.rivit) {
             if (rivi.getRivitunnus() == ruutu.getY()) {
-                if (rivi.onkoArvoJo(asetettavaArvo)) {
+                if (rivi.onkoArvoJo(ruutu, asetettavaArvo)) {
                     return true;
                 }
             }
@@ -130,7 +130,7 @@ public class Pelialusta {
         for (Ruudukko ruudukko : ruudukot) {
             if (ruutu.getX() <= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(0)) + 2 && ruutu.getX() >= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(0))
                     && ruutu.getY() <= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(1)) + 2 && ruutu.getY() >= Character.getNumericValue(ruudukko.getRuudukontunnus().charAt(1))) {
-                if (ruudukko.onkoArvoJo(asetettavaArvo)) {
+                if (ruudukko.onkoArvoJo(ruutu, asetettavaArvo)) {
                     return true;
                 }
             }

@@ -48,7 +48,7 @@ public class SarakeTest {
         sarake.getRuudut().get(0).setArvo(6);
         sarake.getRuudut().get(4).setArvo(6);
         sarake.getRuudut().get(5).setArvo(3);
-        assertTrue(sarake.onkoArvoJo(6));
+        assertTrue(sarake.onkoArvoJo(sarake.getRuudut().get(4), 6));
 
     }
 
@@ -56,7 +56,7 @@ public class SarakeTest {
     public void toimiikoOnkoArvoJoJosEiOle() {
         sarake.getRuudut().get(0).setArvo(8);
         sarake.getRuudut().get(0).setArvo(7);
-        assertFalse(sarake.onkoArvoJo(8));
+        assertFalse(sarake.onkoArvoJo(sarake.getRuudut().get(0), 8));
 
     }
 

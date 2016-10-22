@@ -1,6 +1,5 @@
 package fi.mightysudoku.logiikkaTest;
 
-
 import fi.mightysudoku.logiikka.Ruudukko;
 import fi.mightysudoku.logiikka.Ruutu;
 import java.util.ArrayList;
@@ -49,7 +48,7 @@ public class RuudukkoTest {
     public void toimiikoOnkoArvoJoMetodiJosOn() {
         ruudukko.getRuudut().get(0).setArvo(3);
 
-        assertTrue(ruudukko.onkoArvoJo(3));
+        assertTrue(ruudukko.onkoArvoJo(ruudukko.getRuudut().get(1), 3));
     }
 
     @Test
@@ -58,12 +57,13 @@ public class RuudukkoTest {
         ruudukko.getRuudut().get(1).setArvo(6);
         ruudukko.getRuudut().get(3).setArvo(9);
 
-        assertFalse(ruudukko.onkoArvoJo(3));
+        assertFalse(ruudukko.onkoArvoJo(ruudukko.getRuudut().get(3), 3));
     }
-     @Test
+
+    @Test
     public void toimiikoGetRuudukontunnus() {
 
         assertEquals("00", ruudukko.getRuudukontunnus());
     }
-    
+
 }

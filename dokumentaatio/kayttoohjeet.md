@@ -17,7 +17,7 @@ Mighty Sudoku kertoo heti enteri‰ painettuasi onko asettamasi arvo oikein - jos 
 joko samalla rivill‰, pystyrivill‰ tai aliruudukossa on jo kyseinen numero ja numero ei sovi.
 Jos taas asettamasi numero on hyv‰ksytt‰v‰, muuttuu ruutu vihre‰ksi.
 
-Asettamansa numeron voi aina poistaa backspace-n‰pp‰imell‰, oli se oikein tai v‰‰rin.
+Asettamansa numeron voi aina poistaa backspace-n‰pp‰int‰ painamalla ja enteri‰ sen j‰lkeen, oli se oikein tai v‰‰rin.
 Peliruudukon voi aloittaa alusta painamalla "Aloita alusta"-painiketta ruudukon alapuolella.
 T‰llˆin kaikki Pelaajan t‰ytt‰m‰t ruudut tyhjennet‰‰n.
 
