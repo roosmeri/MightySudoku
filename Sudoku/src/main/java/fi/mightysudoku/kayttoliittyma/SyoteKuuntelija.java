@@ -67,7 +67,6 @@ public class SyoteKuuntelija implements ActionListener {
             if (sudoku.getAlusta().asetaArvo(ruutu, Integer.parseInt(syotetty))) {
                 sudoku.getTextFieldAt(x, y).setBackground(Color.green);
             } else {
-                sudoku.getAlusta().haeRuutu(x, y).setArvo(Integer.parseInt(syotetty));
                 sudoku.getTextFieldAt(x, y).setBackground(Color.red);
             }
         } else {
