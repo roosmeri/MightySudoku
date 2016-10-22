@@ -116,20 +116,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.mightysudoku.kayttoliittyma.NumeronAsetusKuuntelija.java">fi/mightysudoku/kayttoliittyma/NumeronAsetusKuuntelija.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#fi.mightysudoku.logiikka.Ruutu.java">fi/mightysudoku/logiikka/Ruutu.java</a>
                 </td>
                 <td>
@@ -187,6 +173,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.mightysudoku.logiikka.Ruudukko.java">fi/mightysudoku/logiikka/Ruudukko.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.mightysudoku.kayttoliittyma.SyoteKuuntelija.java">fi/mightysudoku/kayttoliittyma/SyoteKuuntelija.java</a>
                 </td>
                 <td>
                   0

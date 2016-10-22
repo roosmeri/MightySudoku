@@ -12,18 +12,19 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Random;
 import java.util.logging.Level;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.text.PlainDocument;
 
 /**
  * Luokka on JFramen aliluokka, joka muodostaa visuaalisen esityksen pelistä.
@@ -112,7 +113,7 @@ public class SudokuFrame extends JFrame {
         sudokuruudukko.setLayout(new GridLayout(9, 9));
         sudokuruudukko.setPreferredSize(new Dimension(korkeus, leveys));
         container.add(sudokuruudukko);
-        KeyListener numerokuuntelija = new NumeronAsetusKuuntelija(this);
+        ActionListener syotekuuntelija = new SyoteKuuntelija(this);
         for (int rivi = 0; rivi < 9; ++rivi) {
             for (int sarake = 0; sarake < 9; ++sarake) {
                 alustanruudut[rivi][sarake] = new JTextField();
@@ -122,7 +123,7 @@ public class SudokuFrame extends JFrame {
                     alustanruudut[rivi][sarake].setText("");
                     alustanruudut[rivi][sarake].setEditable(true);
                     alustanruudut[rivi][sarake].setBackground(Color.WHITE);
-                    alustanruudut[rivi][sarake].addKeyListener(numerokuuntelija);
+                    alustanruudut[rivi][sarake].addActionListener(syotekuuntelija);
                 } else {
                     alustanruudut[rivi][sarake].setText(numerot[rivi][sarake] + "");
                     alustanruudut[rivi][sarake].setEditable(false);
@@ -198,7 +199,7 @@ public class SudokuFrame extends JFrame {
     }
 
     /**
-     * Metodi palauttaa JTextField:in joka sijaitsee kohdassa x,y.
+     * Metodi palauttaa JFormattedTextField:in joka sijaitsee kohdassa x,y.
      *
      * @param x x-koordinaatti.
      * @param y y-koordinaatti.
@@ -252,4 +253,5 @@ public class SudokuFrame extends JFrame {
 
         }
     }
+
 }

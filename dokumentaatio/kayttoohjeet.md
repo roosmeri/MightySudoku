@@ -12,9 +12,11 @@ Mighty Sudokun ruutuihin voi asettaa arvon syöttämällä sen haluamaansa,
 tyhjään ruutuun ja painamalla enter-näppäintä. 
 Jos enter-näppäintä ei paina syötettyään numeron ruutuun, numero jää ruutuun, mutta ei vaikuta
 pelin ratkeamiseen, sillä se pitää lukita enterillä ja todeta oikeaksi tai vääräksi siten.
-Mighty Sudoku kertoo heti onko asettamasi arvo oikein - jos ruutu muuttuu punaiseksi,
+
+Mighty Sudoku kertoo heti enteriä painettuasi onko asettamasi arvo oikein - jos ruutu muuttuu punaiseksi,
 joko samalla rivillä, pystyrivillä tai aliruudukossa on jo kyseinen numero ja numero ei sovi.
 Jos taas asettamasi numero on hyväksyttävä, muuttuu ruutu vihreäksi.
+
 Asettamansa numeron voi aina poistaa backspace-näppäimellä, oli se oikein tai väärin.
 Peliruudukon voi aloittaa alusta painamalla "Aloita alusta"-painiketta ruudukon alapuolella.
 Tällöin kaikki Pelaajan täyttämät ruudut tyhjennetään.
@@ -22,7 +24,8 @@ Tällöin kaikki Pelaajan täyttämät ruudut tyhjennetään.
 Kun kaikki tyhjät ruudut on täytetty niin, että ruutu on vihreä ja punaisia ruutuja ei ole lainkaan,
 peli on selvitetty ja ilmoitus "Ratkaisit Sudokun!" ilmestuu ruudulle. 
 Pelin ratkettua Pelaaja voi aloittaa uuden pelin painamalla "Uusi peli"-painiketta ruudukon alapuolella.
-Kun painiketta on painettu, ilmestyy ikkuna jossa kysytään minkätasoinen peli aloitetaan. 
+Kun painiketta on painettu, ilmestyy ikkuna, jossa kysytään minkätasoinen peli aloitetaan, tason voi valita pudotusvalikosta.
+Tasoja on kolme: helppo, keskitaso ja vaikea, tasot eroavat toisistaan aloitusnumeroiden määrältä. 
 Tason valittuaan Pelaajan tulee painaa "OK" ja uusi peli ilmestyy ruudukkoon.
 
 Missä vaiheessa tahansa pelin voi sulkea klikkaamalla ruudukon alipuolelta "Lopeta"-painikketta tai ruksia

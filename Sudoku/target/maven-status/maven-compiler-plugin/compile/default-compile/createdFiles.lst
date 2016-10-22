@@ -1,11 +1,11 @@
 fi\mightysudoku\kayttoliittyma\SudokuFrame.class
 fi\mightysudoku\logiikka\Ruutu.class
 fi\mightysudoku\MightyMain.class
+fi\mightysudoku\kayttoliittyma\SyoteKuuntelija.class
 fi\mightysudoku\kayttoliittyma\Kayttoliittyma.class
 fi\mightysudoku\logiikka\SudokuTarkastaja.class
 fi\mightysudoku\logiikka\Rivi.class
 fi\mightysudoku\kayttoliittyma\MenuNappulaKuuntelija.class
-fi\mightysudoku\kayttoliittyma\NumeronAsetusKuuntelija.class
 fi\mightysudoku\logiikka\Sarake.class
 fi\mightysudoku\logiikka\Ruudukko.class
 fi\mightysudoku\logiikka\SudokuGeneraattori.class

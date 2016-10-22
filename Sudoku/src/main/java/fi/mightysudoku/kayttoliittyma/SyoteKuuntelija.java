@@ -1,43 +1,44 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package fi.mightysudoku.kayttoliittyma;
 
 import fi.mightysudoku.logiikka.Ruutu;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
- * Luokka kuuntelee käyttöliittymässä tapahtuvia numeroasetuksia.
+ * Luokka kuuntelee JTextFrame-ruutuihin asetettuja syötteitä.
  *
  * @author Viliina
  */
-public class NumeronAsetusKuuntelija implements KeyListener {
+public class SyoteKuuntelija implements ActionListener {
 
-    private SudokuFrame sudoku;
+    SudokuFrame sudoku;
 
     /**
      * Konstruktori asettaa SudokuFrame olion.
      *
-     * @param sudoku SudokUFrame.
+     * @param sudoku SudokuFrame.
      */
-    public NumeronAsetusKuuntelija(SudokuFrame sudoku) {
+    public SyoteKuuntelija(SudokuFrame sudoku) {
         this.sudoku = sudoku;
-
     }
 
     /**
      * Metodi etsii ruudun johon pelaaja asetti arvon ja tarkistaa käykö arvo.
-     * Ilmoittaa myös jos peli ratkaistiin siirrolla.
+     * Ilmoittaa myös jos peli ratkaistiin siirrolla ja kutsuu SudokuFramen
+     * metodia onko ratkaistu, joka lukitsee ruudukon ruudut jos on ratkaistu.
      *
      * @param e Numeroasetus.
      */
     @Override
-    public void keyTyped(KeyEvent e) {
-
+    public void actionPerformed(ActionEvent e) {
         JTextField valitturuutu = (JTextField) e.getSource();
 
         boolean found = false;
@@ -57,6 +58,7 @@ public class NumeronAsetusKuuntelija implements KeyListener {
         if (syotetty.length() > 1) {
             sudoku.getTextFieldAt(x, y).setText("");
             sudoku.getTextFieldAt(x, y).setBackground(Color.WHITE);
+
         } else if (syotetty.isEmpty()) {
             ruutu.setArvo(0);
             sudoku.getTextFieldAt(x, y).setBackground(Color.WHITE);
@@ -78,11 +80,4 @@ public class NumeronAsetusKuuntelija implements KeyListener {
         }
     }
 
-    @Override
-    public void keyPressed(KeyEvent e) {
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-    }
 }
